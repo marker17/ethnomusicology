@@ -35,14 +35,14 @@ class CreateAccessionsTable extends Migration
             $table->string('originalformat_type');
             $table->string('originalformat_description');
             $table->string('e-format_type');
-            $table->string('e-fotmat_description');
+            $table->string('e-format_description');
             $table->string('original_location');
             $table->string('e-location');
             $table->string('provenance_notes');
-            $table->integer('instrumentcatalog_no');
+            $table->string('instrumentcatalog_no');
             $table->string('instrumentcategory_no');
-            $table->integer('instrument_localname');
-            $table->integer('instrument_englishname');
+            $table->string('instrument_localname');
+            $table->string('instrument_englishname');
             $table->string('musicscore_catalogername');
             $table->string('musicscore_instrumentation');
             $table->string('musicscore_performance');
@@ -64,7 +64,7 @@ class CreateAccessionsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('categories');
+        Schema::drop('accessions');
     }
 
 
