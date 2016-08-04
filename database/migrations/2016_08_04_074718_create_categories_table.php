@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupcountriesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,11 @@ class CreateGroupcountriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('groupcountries', function (Blueprint $table) {
-
-            $table->engine = 'InnoDB';
-            
+        Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('groupcountry_name');
-           
+            $table->string('category_name');
+            $table->string('category_description');
+            
         });
     }
 
@@ -29,6 +27,6 @@ class CreateGroupcountriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('groupcountries');
+        Schema::drop('categories');
     }
 }

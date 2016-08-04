@@ -14,108 +14,60 @@ class CreateAccessionsTable extends Migration
     {
         Schema::create('accessions', function (Blueprint $table) {
 
-            $table->engine = 'InnoDB';
+           
 
             $table->increments('id');
             $table->string('title');
 
-            $table->string('description');
-            $table->text('notes');
-            $table->string('provenance_notes');
 
-            //foreign key to authors table
-            $table->integer('author_id')->unsigned();
-            
-                 
-            //foreign key to categories table   
             $table->integer('category_id')->unsigned();
-            
-
-            //foreign key to group/country table  
-            $table->integer('groupcountry_id')->unsigned();
-            
-                  
-
-            //foreign key to year table         
-            $table->integer('year_id')->unsigned();
-           
-                  
-
-
-
-            //foreign key to pics table  
-            $table->integer('pic_id')->unsigned();
-           
-
-             //foreign key to original format type table       
-            $table->integer('originalformattype_id')->unsigned();
-           
-
-            //foreign key to e-format type table     
-            $table->integer('eformattype_id')->unsigned();
-           
-
-            //foreign key to original location table       
-            $table->integer('originallocation_id')->unsigned();
-           
-
-
-             //foreign key to e-location table       
-            $table->integer('elocation_id')->unsigned();
-           
-                
-
-            $table->integer('dimension_id')->unsigned();
-            
-
-
-           
-
-
-
-
-
-
-            $table->timestamps();
-        });
-
-
-        Schema::create('accessions', function (Blueprint $table) {
-
-            $table->engine = 'InnoDB';
-
-            $table->foreign('author_id')->references('id')->on('authors');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('groupcountry_id')->references('id')->on('groupcountries');
-            $table->foreign('year_id')->references('id')->on('years');
-            $table->foreign('pic_id')->references('id')->on('pics');
-            $table->foreign('originalformattype_id')->references('id')->on('originalformattypes');
-            $table->foreign('eformattype_id')->references('id')->on('eformattypes');
-            $table->foreign('originallocation_id')->references('id')->on('originallocations');
-
-            $table->foreign('elocation_id')->references('id')->on('elocations');
-            $table->foreign('dimension_id')->references('id')->on('dimensions');
-
-                  
-                  
-                
-                  
-
-                  
-                 
-
             
-           
+            $table->string('author');
+            $table->string('groupcountry');
+            $table->string('year');
+            $table->string('description');
+            $table->string('notes');
+            $table->string('picture');
+            $table->string('photodate');
+            $table->string('photographer');
+            $table->string('relatedimages');
+            $table->string('originalformat_type');
+            $table->string('originalformat_description');
+            $table->string('e-format_type');
+            $table->string('e-fotmat_description');
+            $table->string('original_location');
+            $table->string('e-location');
+            $table->string('provenance_notes');
+            $table->integer('instrumentcatalog_no');
+            $table->string('instrumentcategory_no');
+            $table->integer('instrument_localname');
+            $table->integer('instrument_englishname');
+            $table->string('musicscore_catalogername');
+            $table->string('musicscore_instrumentation');
+            $table->string('musicscore_performance');
+            $table->string('musicscore_category');
+            $table->float('length');
+            $table->float('width');
+            $table->float('height');
+            $table->float('diameter');
+            $table->integer('no_of_pages');
+            $table->string('original');
+            $table->string('repo');
+            $table->string('full_score');
         });
     }
-
-    /**
+     /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::drop('accessions');
+        Schema::drop('categories');
     }
+
+
+                  
+    
 }
