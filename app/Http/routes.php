@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('contact', 'PagesController@getContact');
+
+Route::get('josemaceda', 'PagesController@getJosemaceda');
+
+Route::get('/', 'PagesController@getIndex');
+
+Route::resource('accessions', 'AccessionController');
+

@@ -19,25 +19,27 @@ class CreateAccessionsTable extends Migration
             $table->increments('id');
             $table->string('title');
 
-
+            //this is foreign key to the categories table
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')
+                  ->on('categories')
+                  ->onDelete('cascade');
             
             $table->string('author');
             $table->string('groupcountry');
             $table->string('year');
             $table->string('description');
-            $table->string('notes');
+            $table->text('notes');
             $table->string('picture');
             $table->string('photodate');
             $table->string('photographer');
             $table->string('relatedimages');
             $table->string('originalformat_type');
             $table->string('originalformat_description');
-            $table->string('e-format_type');
-            $table->string('e-format_description');
+            $table->string('eformat_type');
+            $table->string('eformat_description');
             $table->string('original_location');
-            $table->string('e-location');
+            $table->string('elocation');
             $table->string('provenance_notes');
             $table->string('instrumentcatalog_no');
             $table->string('instrumentcategory_no');
@@ -45,7 +47,7 @@ class CreateAccessionsTable extends Migration
             $table->string('instrument_englishname');
             $table->string('musicscore_catalogername');
             $table->string('musicscore_instrumentation');
-            $table->string('musicscore_performance');
+            $table->string('musicscore_performances');
             $table->string('musicscore_category');
             $table->float('length');
             $table->float('width');
@@ -55,6 +57,7 @@ class CreateAccessionsTable extends Migration
             $table->string('original');
             $table->string('repo');
             $table->string('full_score');
+            $table->timestamps();
         });
     }
      /**
