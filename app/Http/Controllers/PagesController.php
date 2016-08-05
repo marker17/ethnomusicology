@@ -20,12 +20,12 @@ class PagesController extends Controller
 
     public function getPolicies(){
 
-    	return view('pages.welcome');
+    	return view('pages.policies');
     }
 
     public function getContact(){
 
-    	return view('pages.welcome');
+    	return view('pages.contact');
     }
 
 

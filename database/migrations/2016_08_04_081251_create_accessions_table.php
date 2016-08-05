@@ -20,7 +20,7 @@ class CreateAccessionsTable extends Migration
             $table->string('title');
 
             //this is foreign key to the categories table
-            $table->integer('category_id')->unsigned();
+            $table->integer('category_id')->nullable()->unsigned();
             $table->foreign('category_id')->references('id')
                   ->on('categories')
                   ->onDelete('cascade');
