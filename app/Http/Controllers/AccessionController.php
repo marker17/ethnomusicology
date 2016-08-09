@@ -19,7 +19,7 @@ class AccessionController extends Controller
      */
     public function index()
     {
-        $accessions = Accessions::all();
+        $accessions = Accession::all();
 
         return view('accessions.index')->withAccessions($accessions);
     }
@@ -31,6 +31,8 @@ class AccessionController extends Controller
      */
     public function create()
     {
+
+
         return view('accessions.create');
     }
 
@@ -42,10 +44,20 @@ class AccessionController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $this->validate($request, array(
+            'category_id' =>'required',
+            'length' => 'numeric',
+            'width' => 'numeric',
+            'height' => 'numeric',
+            'diameter' => 'numeric'
+            ));
+        
+
         $accession = new Accession;
 
         $accession->title = $request->title;
-        $accession->collectiontype = $request->collectiontype;
+        $accession->category_id = $request->category_id;
         $accession->author = $request->author;
         $accession->title = $request->title;
         $accession->groupcountry = $request->groupcountry;
@@ -54,7 +66,8 @@ class AccessionController extends Controller
         $accession->notes = $request->notes;
         $accession->picture = $request->picture;
         $accession->photodate = $request->photodate;
-        $accession->photographer = $request->relatedimages;
+        $accession->photographer = $request->photographer;
+        $accession->relatedimages = $request->relatedimages;
         $accession->originalformat_type = $request->originalformat_type;
         $accession->originalformat_description = $request->originalformat_description;
         $accession->eformat_type = $request->eformat_type;
@@ -79,14 +92,9 @@ class AccessionController extends Controller
         $accession->repo = $request->repo;
         $accession->full_score = $request->full_score;
 
+        $accession->save();
 
-
-
-
-
-
-
-
+        return redirect()->route('accessions.show', $accession->id);
     }
 
     /**
@@ -106,13 +114,10 @@ class AccessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $accession = Accessions::find($id)
+    public function edit($id){
+        $accession = Accession::find($id);
 
-        return view('accessions.edit')->withAccession($accession);
-
-
+        //return view('accessions.edit')->withAccession($accession);
     }
 
     /**

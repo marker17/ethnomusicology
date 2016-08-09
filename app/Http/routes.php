@@ -12,9 +12,15 @@
 */
 
 
+Route::get('welcome', 'PagesController@getWelcome');
+
 Route::get('contact', 'PagesController@getContact');
 
 Route::get('josemaceda', 'PagesController@getJosemaceda');
+
+Route::get('policies', 'PagesController@getPolicies');
+
+Route::get('collection', 'PagesController@getCollection');
 
 Route::get('/', 'PagesController@getIndex');
 

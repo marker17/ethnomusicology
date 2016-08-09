@@ -1,0 +1,140 @@
+body{
+
+	align:center;
+	padding:70px 0px 0px 0px;
+	z-index:0;
+	background: #650000;
+    border-color: #6b1b6b !important;
+    font-family: Helvetica !important;  
+
+}
+
+
+.container,
+.navbar-fixed-top .container{
+   width: 940px;
+}
+
+
+.footer {
+    text-align: center;
+    margin-bottom: 20px
+}
+
+.footer ul {
+    margin-left: 0;
+    padding-left: 0;
+    display: inline
+}
+
+.footer li {
+    margin-left: 0;
+    padding: 3px 15px;
+    list-style: none;
+    display: inline;
+    font-size: 12px
+}
+
+.footer a {
+    color: #d6d57e
+}
+
+.main-container {
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 50px 10px #cd2323;
+    box-shadow: 0px 0px 50px 10px #cd2323;
+    min-height: 470px;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input.search-query {
+    padding: 4px 9px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1;
+    background-color: #7b7b7b;
+    color: #ffffff;
+    border: 1px solid #151515;
+}
+
+
+/*
+    this sets the general green color of the navbar
+ */
+.navbar-default{
+
+    background-color:#096804;
+    border-color:#096804;
+    color:#ffffff;
+}
+
+
+/* sets the text color of the brand */
+.navbar-default .navbar-brand{
+
+    color:#d6d57e;
+}
+
+/* this sets the hover and focus of the brand */
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus{
+    
+    color:#fffda8;
+    background-color: transparent;
+    
+}
+
+/* sets the text color of the navbar-nav */
+.navbar-default .navbar-nav > li >a {
+
+    color:#d6d57e;
+    font-size: 13px;
+   
+}
+
+
+/* this sets the hover and focus of the linkx in navbar-nav */
+
+.navbar-default .navbar-nav > li >a:hover,
+.navbar-default .navbar-nav > li >a:focus {
+
+  
+    color:#fffda8;
+     background-color: transparent;
+   
+}
+
+/* this sets the text color,  hover and focus of the link in navbar-nav when active*/
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus{
+
+    color:#fffda8;
+    background-color: transparent;
+
+}
+
+
+
+
+
+

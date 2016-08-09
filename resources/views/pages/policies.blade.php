@@ -1,45 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@extends('main')                    
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato', sans-serif;
-            }
+@section('Policies')  
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Policies</div>
-            </div>
+@section('content')
+    <h1>POLICIES</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <p>Lorem ipsum Magna consequat dolore irure minim ut sit irure. Lorem ipsum Ad ad amet proident aliqua ut consequat elit amet commodo. Lorem ipsum Tempor dolor voluptate ea dolore id ut commodo amet. Lorem ipsum Esse dolor officia culpa do culpa fugiat culpa elit laborum anim consequat. Lorem ipsum Ullamco ex irure eu occaecat dolor incididunt laboris ut laboris officia. Lorem ipsum Ad deserunt reprehenderit enim veniam commodo aliqua reprehenderit sed est.</p>
         </div>
-    </body>
-</html>
+         <div class="col-md-8">
+            <p>Lorem ipsum Incididunt in proident anim labore aliquip non anim nisi do in. Lorem ipsum Anim reprehenderit id cillum cupidatat nisi minim. Lorem ipsum Est occaecat nulla qui in aute voluptate. Lorem ipsum Et nulla elit dolor aute deserunt. Lorem ipsum Enim elit pariatur non pariatur eiusmod ex reprehenderit. Lorem ipsum Qui cupidatat magna esse sunt culpa commodo ad laborum dolore proident eiusmod. Lorem ipsum Incididunt veniam occaecat ullamco nulla eu.</p>
+        </div>
+    </div>   
+@stop   
+
+
