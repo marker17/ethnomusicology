@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 
 use App\Accession;
 
+use Session;
+
 class AccessionController extends Controller
 {
     /**
@@ -94,6 +96,9 @@ class AccessionController extends Controller
 
         $accession->save();
 
+        Session::flash('success', 'The new accession was successfully saved!');
+
+
         return redirect()->route('accessions.show', $accession->id);
     }
 
@@ -105,7 +110,9 @@ class AccessionController extends Controller
      */
     public function show($id)
     {
-        return view('accessions.show');
+        $accession = Accession::find($id);
+
+        return view('accessions.show')->withAccession($accession);
     }
 
     /**

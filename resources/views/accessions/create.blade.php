@@ -2,18 +2,24 @@
 
 @section('Create')
 
+@section('stylesheets')
+	{!! HTML::style('css/parsley.css') !!}
+@endsection
+
+
 @section('content')
 
 
 
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-8 col-md-offset-2 col-xs-12">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Create New Accession</div>
-					<div class="panel-body">
+					<div class="panel-body">			
 
-				
-						{!! Form::open(array('route' => 'accessions.store', 'class' => 'form-horizontal')) !!}
+						
+						{!! Form::open(['route' => 'accessions.store', 'data-parsely-validate' => '', 'class' => 'form-horizontal']) !!}
+						
 
 							<div class="form-group">
 								{{ Form::label('title', 'Title:', array('class'=>'col-sm-2 control-label')) }}
@@ -272,3 +278,9 @@
 		</div>
 	</div>
 @endsection
+
+@section('scripts')
+	{!! HTML::style('js/parsley.js') !!}
+@endsection
+
+
