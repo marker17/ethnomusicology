@@ -52,7 +52,7 @@
 							<div class="form-group">
 								{{ Form::label('year', 'Year:', array('class'=>'col-sm-2 control-label')) }}
 								<div class="col-sm-10">
-									{{ Form::text('Yearr', null, array('class'=>'form-control')) }}
+									{{ Form::text('year', null, array('class'=>'form-control')) }}
 								</div>
 							</div>
 
@@ -114,16 +114,16 @@
 							</div>
 
 							<div class="form-group">
-								{{ Form::label('e-format_type', 'E-Format Type:', array('class'=>'col-sm-2 control-label')) }}
+								{{ Form::label('eformat_type', 'E-Format Type:', array('class'=>'col-sm-2 control-label')) }}
 								<div class="col-sm-10">
-									{{ Form::text('e-format_type', null, array('class'=>'form-control')) }}
+									{{ Form::text('eformat_type', null, array('class'=>'form-control')) }}
 								</div>
 							</div>
 
 							<div class="form-group">
-								{{ Form::label('e-format_description', 'E-format Description:', array('class'=>'col-sm-2 control-label')) }}
+								{{ Form::label('eformat_description', 'E-format Description:', array('class'=>'col-sm-2 control-label')) }}
 								<div class="col-sm-10">
-									{{ Form::text('e-format_description', null, array('class'=>'form-control')) }}
+									{{ Form::text('eformat_description', null, array('class'=>'form-control')) }}
 								</div>
 							</div>
 
