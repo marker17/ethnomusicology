@@ -23,7 +23,7 @@
 						</div>
 						<div class="col-sm-4">
 							{!! Form::submit('Update', ['class' => 'btn btn-success btn-block']) !!}
-								
+							{!! Form::close() !!}
 						</div>
 
 						<div class="col-sm-4">

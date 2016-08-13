@@ -39,11 +39,11 @@ class CategoryController extends Controller
          'category_name' => 'required|max:255'
          ));
 
-        Category::create($request->all());
+        $category = Category::create($request->all());
 
         Session::flash('success', 'The new category has been saved!');
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->withCategory($category);
        
        
 
