@@ -46,14 +46,15 @@ class AccessionController extends Controller
      */
     public function store(Request $request)
     {
-        
         $this->validate($request, array(
-            'category_id' =>'required',
             'length' => 'numeric',
             'width' => 'numeric',
             'height' => 'numeric',
-            'diameter' => 'numeric' 
+            'diameter' => 'numeric'
+
         ));
+
+        
         
         $accession = Accession::create($request->all());
     
@@ -74,6 +75,10 @@ class AccessionController extends Controller
     {
         $accession = Accession::find($id);
 
+        
+        
+
+
         return view('accessions.show')->withAccession($accession);
     }
 
@@ -87,6 +92,8 @@ class AccessionController extends Controller
 
         $accession = Accession::find($id);
 
+
+
         return view('accessions.edit')->withAccession($accession);
     }
 
@@ -99,19 +106,32 @@ class AccessionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, array(
-            'category_id' =>'required',
+       $this->validate($request, array(
             'length' => 'numeric',
             'width' => 'numeric',
             'height' => 'numeric',
-            'diameter' => 'numeric' 
+            'diameter' => 'numeric'
+
         ));
 
         $accession = Accession::find($id);
 
-
-
         $accession->update($request->all());
+
+
+        /*
+
+        $accession->title = $request->input('title');
+        $accession->category_id = $request->input('category_id');
+        $accession->author = $request->input('author');
+       
+       */
+       
+        $accession->save();
+
+
+
+
 
         Session::flash('success', 'The accession was successfully changed!');
 

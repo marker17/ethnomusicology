@@ -2,7 +2,7 @@
 
 @extends('main')                    
 
-@section('title','| Home')  
+@section('Home')  
 
 @section('content')
 	<h1>WELCOME</h1>

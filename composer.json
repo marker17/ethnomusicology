@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "ext-mbstring": "*",
         "ext-mysql": "*",
-        "laravelcollective/html": "^5.2"
+        "laravelcollective/html": "^5.2",
+        "doctrine/dbal": "^2.5"
 
     },
     "require-dev": {

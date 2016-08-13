@@ -32,18 +32,22 @@
 						<th>Country</th>
 						<th>Year</th>
 						<th>Description</th>
+						<th></th>
 					</thead>
 					<tbody>
-						@foreach($accessions as $accession)
-						<tr>
-							<th>{{$accession->id }}</th>
-							<td>{{$accession->title}}</td>
-							<td>{{$accession->author}}</td>
-							<td>{{$accession->groupcountry}}</td>
-							<td>{{$accession->year}}</td>
-							<td>{{str_limit($accession->description, 30, "...")}}</td>
-							<td><a href="{{ route('accessions.show', $accession->id)}}" class="btn btn-danger btn-sm">View</a> <a href="{{ route('accessions.edit', $accession->id)}}" class="btn btn-danger btn-sm">Edit</a></td>
-						</tr>
+
+						@foreach ($accessions as $accession)
+
+						
+							<tr>
+								<th>{{ $accession->id }}</th>
+								<td>{{ $accession->title }}</td>
+								<td>{{ $accession->author }}</td>
+								<td>{{ $accession->groupcountry }}</td>
+								<td>{{ $accession->year }}</td>
+								<td>{{ substr($accession->description, 0, 50) }}{{ strlen($accession->description) > 50 ? "..." : "" }}</td>
+								<td><a href="{{ route('accessions.show', $accession->id) }}" class="btn btn-danger btn-sm">View</a> <a href="{{ route('accessions.edit', $accession->id) }}" class="btn btn-danger btn-sm">Edit</a></td>
+							</tr>
 						@endforeach
 					</tbody>
 

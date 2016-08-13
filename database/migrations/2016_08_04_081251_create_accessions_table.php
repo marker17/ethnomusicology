@@ -3,6 +3,9 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
+
+
 class CreateAccessionsTable extends Migration
 {
     /**
@@ -17,7 +20,7 @@ class CreateAccessionsTable extends Migration
            
 
             $table->increments('id');
-            $table->string('title');
+            $table->string('title')->nullable();
 
             //this is foreign key to the categories table
             $table->integer('category_id')->nullable()->unsigned();
@@ -25,39 +28,40 @@ class CreateAccessionsTable extends Migration
                   ->on('categories')
                   ->onDelete('cascade');
             
-            $table->string('author');
-            $table->string('groupcountry');
-            $table->string('year');
-            $table->string('description');
-            $table->text('notes');
-            $table->string('picture');
-            $table->string('photodate');
-            $table->string('photographer');
-            $table->string('relatedimages');
-            $table->string('originalformat_type');
-            $table->string('originalformat_description');
-            $table->string('eformat_type');
-            $table->string('eformat_description');
-            $table->string('original_location');
-            $table->string('elocation');
-            $table->string('provenance_notes');
-            $table->string('instrumentcatalog_no');
-            $table->string('instrumentcategory_no');
-            $table->string('instrument_localname');
-            $table->string('instrument_englishname');
-            $table->string('musicscore_catalogername');
-            $table->string('musicscore_instrumentation');
-            $table->string('musicscore_performances');
-            $table->string('musicscore_category');
-            $table->float('length');
-            $table->float('width');
-            $table->float('height');
-            $table->float('diameter');
-            $table->integer('no_of_pages');
-            $table->string('original');
-            $table->string('repo');
-            $table->string('full_score');
+            $table->string('author')->nullable();
+            $table->string('groupcountry')->nullable();
+            $table->string('year')->nullable();
+            $table->string('description')->nullable();
+            $table->text('notes')->nullable();
+            $table->string('picture')->nullable();
+            $table->string('photodate')->nullable();
+            $table->string('photographer')->nullable();
+            $table->string('relatedimages')->nullable();
+            $table->string('originalformat_type')->nullable();
+            $table->string('originalformat_description')->nullable();
+            $table->string('eformat_type')->nullable();
+            $table->string('eformat_description')->nullable();
+            $table->string('original_location')->nullable();
+            $table->string('elocation')->nullable();
+            $table->string('provenance_notes')->nullable();
+            $table->string('instrumentcatalog_no')->nullable();
+            $table->string('instrumentcategory_no')->nullable();
+            $table->string('instrument_localname')->nullable();
+            $table->string('instrument_englishname')->nullable();
+            $table->string('musicscore_catalogername')->nullable();
+            $table->string('musicscore_instrumentation')->nullable();
+            $table->string('musicscore_performances')->nullable();
+            $table->string('musicscore_category')->nullable();
+            $table->float('length')->nullable();
+            $table->float('width')->nullable();
+            $table->float('height')->nullable();
+            $table->float('diameter')->nullable();
+            $table->integer('no_of_pages')->nullable();
+            $table->string('original_work')->nullable();
+            $table->string('repo')->nullable();
+            $table->string('full_score')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
      /**
