@@ -25,11 +25,12 @@
 				
 				{{ Form::label('category_id', 'Category') }}
 				<select class="form-control" name="category_id">
-					@foreach($categories as $category)
-						<option value='{{ $category->id }}'>{{ $category->name }}</option>
+					@foreach( $categories as $category)
+						<option value='{{ $category->id }}'>{{ $category->category_name }}</option>
 					@endforeach
 				</select>
-				
+
+
 								
 				{{ Form::label('author', 'Author') }}
 				{{ Form::text('author', null, array('class'=>'form-control')) }}

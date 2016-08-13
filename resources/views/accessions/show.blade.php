@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<h1>{{ $accession->title }}</h1>
-
+			<p>{{ $accession->category->category_name }}</p>	
 			<p class="lead">{{ $accession->author }}</p>	
 		</div>
 		<div class="col-md-4">

@@ -12,6 +12,10 @@ use App\Accession;
 
 use Session;
 
+
+
+use App\Category;
+
 class AccessionController extends Controller
 {
     /**
@@ -34,8 +38,9 @@ class AccessionController extends Controller
     public function create()
     {
 
+        $categories=Category::all();
 
-        return view('accessions.create');
+        return view('accessions.create')->withCategories($categories);
     }
 
     /**
@@ -47,10 +52,11 @@ class AccessionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
-            'length' => 'numeric',
-            'width' => 'numeric',
-            'height' => 'numeric',
-            'diameter' => 'numeric'
+            'category_id'   => 'required|integer',
+            'length'        => 'numeric',
+            'width'         => 'numeric',
+            'height'        => 'numeric',
+            'diameter'      => 'numeric'
 
         ));
 
@@ -75,7 +81,7 @@ class AccessionController extends Controller
     {
         $accession = Accession::find($id);
 
-        
+
         
 
 
@@ -90,11 +96,20 @@ class AccessionController extends Controller
      */
     public function edit($id){
 
+
+
         $accession = Accession::find($id);
 
+        $categories = Category::all();
+        $cats = array();
+        foreach($categories as $category){
+
+            $cats[$category->id] = $category->name;
+        }
 
 
-        return view('accessions.edit')->withAccession($accession);
+
+        return view('accessions.edit')->withAccession($accession)->withCategories($cats);
     }
 
     /**
@@ -106,8 +121,11 @@ class AccessionController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $this->validate($request, array(
-            'length' => 'numeric',
+        $accession = Accession::find($id);
+
+        $this->validate($request, array(
+            'category_id' =>'required|integer',
+            'length' => 'numeric', 
             'width' => 'numeric',
             'height' => 'numeric',
             'diameter' => 'numeric'
@@ -117,20 +135,6 @@ class AccessionController extends Controller
         $accession = Accession::find($id);
 
         $accession->update($request->all());
-
-
-        /*
-
-        $accession->title = $request->input('title');
-        $accession->category_id = $request->input('category_id');
-        $accession->author = $request->input('author');
-       
-       */
-       
-        $accession->save();
-
-
-
 
 
         Session::flash('success', 'The accession was successfully changed!');

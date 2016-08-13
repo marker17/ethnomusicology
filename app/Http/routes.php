@@ -26,3 +26,9 @@ Route::get('/', 'PagesController@getIndex');
 
 Route::resource('accessions', 'AccessionController');
 
+
+
+
+//category
+Route::resource('categories', 'CategoryController', ['except' => ['create']]);
+

@@ -10,16 +10,17 @@ class CreateCategoriesTable extends Migration
      *
      * @return void
      */
-    public function up()
+    
+public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('category_name');
             $table->string('category_description');
+           
             
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -27,6 +28,8 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('categories');
+        Schema::dropColumn('category_id');
     }
 }
+
+

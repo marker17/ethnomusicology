@@ -41,7 +41,7 @@
 						
 							<tr>
 								<th>{{ $accession->id }}</th>
-								<td>{{ $accession->title }}</td>
+								<td>{{ $accession->category->category_name}}</td>
 								<td>{{ $accession->author }}</td>
 								<td>{{ $accession->groupcountry }}</td>
 								<td>{{ $accession->year }}</td>
