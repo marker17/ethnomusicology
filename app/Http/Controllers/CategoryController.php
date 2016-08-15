@@ -43,14 +43,7 @@ class CategoryController extends Controller
 
         Session::flash('success', 'The new category has been saved!');
 
-        return redirect()->route('categories.index')->withCategory($category);
-       
-       
-
-        
-
-      
-
+        return redirect()->route('categories.index', $category->id); //->withCategory($category);
     }
 
     /**
@@ -87,6 +80,8 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category -> update($request->all());
+        Session::flash('success', 'The category has been updated!');
+
         return redirect()->route('categories.index');
     }
 
@@ -109,3 +104,5 @@ class CategoryController extends Controller
 
     }
 }
+
+//return redirect()->route('accessions.show', $accession->id);

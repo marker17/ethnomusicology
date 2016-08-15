@@ -28,7 +28,7 @@ public function up()
      */
     public function down()
     {
-        Schema::dropColumn('category_id');
+        Schema::drop('categories');
     }
 }
 

@@ -5,23 +5,19 @@
 @section('content')
 
 	<div class="row">
+
 		<div class="col-md-8">
-			<h1>{{ $accession->title }}</h1>
-			<p>{{ $accession->category->category_name }}</p>	
-			<p class="lead">{{ $accession->author }}</p>	
+			<h1>{{ $accession->accession_no }}</h1>
 		</div>
 		<div class="col-md-4">
 			<div class="well">
 				<div class="row">
 					<div class="col-sm-6">
 						{!! HTML::linkRoute('accessions.edit', 'Edit', array($accession->id), array('class'=>'btn btn-primary btn-block')) !!}
-
 					</div>
 					<div class="col-sm-6">
 						
 						{!! Form::open(['route' => ['accessions.destroy', $accession->id], 'method' => 'DELETE']) !!}
-
-							
 
 							{!! Form::submit('Delete',['class' => 'btn btn-danger btn-block form-control']) !!}
 

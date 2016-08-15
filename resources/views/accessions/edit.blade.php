@@ -8,6 +8,10 @@
 		
 		{!! Form::model($accession, ['route' => ['accessions.update', $accession->id], 'method' => 'PATCH']) !!}
 			<div class="col-md-8">
+
+				{{ Form::label('accession_no', 'Accession No.') }}
+				{{ Form::text('accession_no', null, ['class' => 'form-control']) }}
+
 				{{ Form::label('title', 'Title') }}
 				{{ Form::text('title', null, ['class' => 'form-control']) }}
 

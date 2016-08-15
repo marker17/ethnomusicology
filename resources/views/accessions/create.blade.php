@@ -19,6 +19,9 @@
 			
 			{!! Form::open(array('route' => 'accessions.store', 'data-parsley-validate' => '')) !!}
 
+				{{ Form::label('accession_no', 'Accession No.') }}
+				{{ Form::text('accession_no', null, array('class' =>'form-control', 'maxlength' =>'255')) }}
+
 				
 				{{ Form::label('title', 'Title') }}
 				{{ Form::text('title', null, array('class' =>'form-control', 'maxlength' =>'255')) }}

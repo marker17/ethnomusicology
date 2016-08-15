@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Accession extends Model
 {
     protected $fillable = [
+        'accession_no',
         'title',
         'category_id',
         'author',

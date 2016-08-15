@@ -20,6 +20,7 @@ class CreateAccessionsTable extends Migration
            
 
             $table->increments('id');
+            $table->string('accession_no');
             $table->string('title')->nullable();
 
             //this is foreign key to the categories table

@@ -40,7 +40,7 @@
 
 						
 							<tr>
-								<th>{{ $accession->id }}</th>
+								<th><a href="{{route('accessions.show', $accession->id)}}">{{$accession->accession_no}}</a></th>
 								<td>{{ $accession->category->category_name}}</td>
 								<td>{{ $accession->author }}</td>
 								<td>{{ $accession->groupcountry }}</td>
