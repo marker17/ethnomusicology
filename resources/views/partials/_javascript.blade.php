@@ -7,3 +7,8 @@
 
 
 {{ HTML::script('js/bootstrap.min.js') }}
+
+
+
+
+{{ HTML::script('js/dist/sweetalert.min.js') }}

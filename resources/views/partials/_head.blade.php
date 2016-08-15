@@ -21,6 +21,8 @@
 
 {{ HTML::style('css/styles.css') }}
 
- 
+
+
+{{ HTML::style('css/dist/sweetalert.css') }}
 
 @yield('stylesheets') 
