@@ -41,7 +41,7 @@ class Accession extends Model
         'height',
         'diameter',
         'no_of_pages',
-        'original',
+        'original_work',
         'repo',
         'full_score',
     ];

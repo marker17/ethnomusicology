@@ -59,9 +59,9 @@ body{
 
 /*
     TABLES
- */
 
-/*
+
+
 table {
 table-layout:auto;
  width:100%;
@@ -69,11 +69,9 @@ word-wrap:break-word;
 
 }
 
-*/
 
 
 
-/*
 
 .fixed-table {
      
@@ -101,6 +99,15 @@ word-wrap:break-word;
 */
 
 
+
+
+
+.table {
+    table-layout:auto;
+  
+    word-wrap:break-word;
+
+}
 
 
 

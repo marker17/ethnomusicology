@@ -25,7 +25,7 @@ class AccessionController extends Controller
      */
     public function index()
     {
-        $accessions = Accession::all();
+        $accessions = Accession::orderBy('id')->paginate(20);
 
         return view('accessions.index')->withAccessions($accessions);
     }

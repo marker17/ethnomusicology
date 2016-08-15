@@ -41,12 +41,14 @@
 						
 							<tr>
 								<th><a href="{{route('accessions.show', $accession->id)}}">{{$accession->accession_no}}</a></th>
-								<td>{{ $accession->category->category_name}}</td>
-								<td>{{ $accession->author }}</td>
-								<td>{{ $accession->groupcountry }}</td>
-								<td>{{ $accession->year }}</td>
+								<td>{{ ($accession->category->category_name) }}</td>
+								<td>{{ substr($accession->author, 0, 50) }}{{strlen($accession->description) > 50 ? "..." : "" }}</td>
+								<td>{{ substr($accession->groupcountry, 0, 50) }}{{strlen($accession->description) > 50 ? "..." : "" }}</td>
+								<td>{{ substr($accession->year, 0, 10) }}{{strlen($accession->description) > 50 ? "..." : "" }}</td>
 								<td>{{ substr($accession->description, 0, 50) }}{{ strlen($accession->description) > 50 ? "..." : "" }}</td>
-								<td><a href="{{ route('accessions.show', $accession->id) }}" class="btn btn-danger btn-sm">View</a> <a href="{{ route('accessions.edit', $accession->id) }}" class="btn btn-danger btn-sm">Edit</a></td>
+								<td>
+									<a href="{{ route('accessions.show', $accession->id) }}" class="btn btn-danger btn-sm">View</a> <a href="{{ route('accessions.edit', $accession->id) }}" class="btn btn-danger btn-sm">Edit</a>
+								</td>
 							</tr>
 						@endforeach
 					</tbody>
@@ -54,6 +56,9 @@
 				</table>
 			</div>
 		</div>
+	</div>
+	<div class="text-center">	
+		{!! $accessions->links(); !!}
 	</div>
 
 
