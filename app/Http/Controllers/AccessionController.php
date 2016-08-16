@@ -156,7 +156,8 @@ class AccessionController extends Controller
 
         $accession->delete();
 
-        Session::flash('success', 'The accession was successfully deleted.');
+        //commenting this out since sweet alert has confimation when deleted
+        //Session::flash('success', 'The accession was successfully deleted.');
 
 
         return redirect()->route('accessions.index');

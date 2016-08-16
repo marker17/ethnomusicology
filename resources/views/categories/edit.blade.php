@@ -24,7 +24,7 @@
 			</div>
 			<div class="form-group">
 			
-				{!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'DELETE']) !!}
+				{!! Form::open(['route' => ['categories.destroy', $category->id], 'method' => 'DELETE', 'id' => 'from1']) !!}
 
 				{{ Form::submit('Delete',['class' => 'btn btn-danger btn-sm']) }}
 
@@ -42,4 +42,8 @@
 	
 	
 
+@endsection
+
+@section('scripts')
+	{!! HTML::script('js/myscripts.js') !!} 
 @endsection

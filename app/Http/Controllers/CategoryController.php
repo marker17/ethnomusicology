@@ -97,7 +97,8 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        Session::flash('success', 'The category was successfully deleted.');
+        //commenting this out since sweet alert has confimation when deleted
+        //Session::flash('success', 'The category was successfully deleted.');
 
 
         return redirect()->route('categories.index');
