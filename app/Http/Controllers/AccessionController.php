@@ -10,11 +10,12 @@ use App\Http\Controllers\Controller;
 
 use App\Accession;
 
+use App\Category;
+
 use Session;
 
 
 
-use App\Category;
 
 class AccessionController extends Controller
 {
@@ -25,9 +26,11 @@ class AccessionController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
+
         $accessions = Accession::orderBy('id')->paginate(20);
 
-        return view('accessions.index')->withAccessions($accessions);
+        return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
     }
 
     /**

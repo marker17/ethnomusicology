@@ -5,45 +5,29 @@
 @section('content')
 
 	<div class="row">
-		<div style="text-align: right">
-				
-			<a href="{{ route('accessions.create') }}" class="btn btn-primary btn-h1-spacing creator">Create New Accession</a>
-		</div>
+		
 
 		<div class="col-md-2">
 
-			<ul class="nav nav-list">
-				<li class="nav-header">Categories</li>
-				<li>
-					<a href="http://upethnom.com/jmcollection/index.php/items/search?">All</a> </li> <li class=""> <a href="http://upethnom.com/jmcollection/index.php/items/search?type=photo">Photo</a> 
-				</li> 
-				<li>
-					<a href="http://upethnom.com/jmcollection/index.php/items/search?type=field+notes">Field Notes</a> 
-				</li> 
-				<li> 
-					<a href="http://upethnom.com/jmcollection/index.php/items/search?type=audio+recording">Audio Recording</a> 
-				</li> 
-				<li> 
-					<a href="http://upethnom.com/jmcollection/index.php/items/search?type=instrument">Instrument</a> 
-				</li> 
-				<li>
-					<a href="http://upethnom.com/jmcollection/index.php/items/search?type=music+scores">Music Scores</a> 
-				</li> 
-				<li>
-					<a href="http://upethnom.com/jmcollection/index.php/items/search?type=video">Video</a> 
-				</li>
-				<li>
-					<a href="http://upethnom.com/jmcollection/index.php/items/search?type=vertical+files">Vertical Files</a>
-				</li> 
-				<li class="divider">
+			
+			<table class="table">
+				<thead>
+					<th>Categories</th>
+
+
+				</thead>
+				<tbody>
+
+					@foreach ($categories as $category)
+					<tr>
+						
+						<td><a href="{{route('categories.edit', $category->id)}}">{{$category->category_name}}</a></td>
 					
-				</li> 
-				<li> 
-					<a href="http://upethnom.com/jmcollection/index.php/items/advanced_search"><i class="icon-search"></i> Advanced Search</a>
-				<li>
-					<p class="benchmark">About 1,190 results (0.1148)</p>
-				</li> 
-			</ul>
+					</tr>
+					@endforeach
+
+				</tbody>
+			</table>
 
 		</div>
 		<div class="col-md-10">
