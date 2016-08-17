@@ -65,7 +65,7 @@
 
 							
 								<tr>
-									<th><a href="{{route('accessions.show', $accession->id)}}">{{$accession->accession_no}}</a></th>
+									<th><a href="{{route('collections.single', $accession->accession_no)}}">{{$accession->accession_no}}</a></th>
 									<td>{{ ($accession->category->category_name) }}</td>
 									<td>{{substr($accession->author, 0, 25) }}{{ strlen($accession->author)>25 ? "…" : "" }}</td></td>
 									<td>{{substr($accession->groupcountry, 0, 20) }}{{ strlen($accession->author)>20 ? "…" : "" }}</td>
