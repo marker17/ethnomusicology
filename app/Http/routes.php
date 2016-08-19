@@ -11,18 +11,29 @@
 |
 */
 
-
-Route::get('welcome', 'PagesController@getWelcome');
-
-Route::get('contact', 'PagesController@getContact');
+Route::get('/', 'PagesController@getIndex');
 
 Route::get('josemaceda', 'PagesController@getJosemaceda');
 
 Route::get('policies', 'PagesController@getPolicies');
 
-//Route::get('collection', 'PagesController@getCollection');
+Route::get('contact', 'PagesController@getContact');
 
-Route::get('/', 'PagesController@getIndex');
+Route::get('about', 'PagesController@getAbout');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::resource('accessions', 'AccessionController');
 
@@ -32,6 +43,13 @@ Route::resource('accessions', 'AccessionController');
 //category
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
+
+
+
+Route::get('categories/{category_name}', [
+
+	'uses' => 'CategoryController@getCategory', 'as' => 'categories.indexExternal'
+]);
 
 
 //collectioncontroller
@@ -46,13 +64,9 @@ Route::get('collections', [
 	'uses' => 'CollectionController@getIndex', 'as' => 'collections.index'
 ]);
 
-
-Route::get('contact', 'PagesController@getContact');
-
-Route::get('about', 'PagesController@getAbout');
+//pagescontroller
 
 
 
-Route::get('/', 'PagesController@getIndex');
 
 

@@ -1,41 +1,15 @@
 @extends('main')
 
-@section('All Accessions')
+@section('All Categories')
 
 @section('content')
 
+
+	
 	<div class="row">
-		<div style="text-align:right;">
-			<a href="{{ route('accessions.create') }}" class="btn btn-primary btn-h1-spacing">Create New Post</a>
-		</div>
-
-		<div class="col-md-2">
-
 		
-			<table class="table">
-				<thead>
-					<th>Categories</th>
 
-
-				</thead>
-				<tbody>
-
-					@foreach ($categories as $category)
-					<tr>
-						 
-            </div>
-
-
-						<td><a href="{{url('accessions?type='.$category->category_name) }}">{{$category->category_name}}</a></td>
-					
-					</tr>
-					@endforeach
-
-				</tbody>
-			</table>
-		
-		</div>
-		<div class="col-md-10">
+		<div class="col-md-12">
 			
 
 			<div class="row">
@@ -79,13 +53,10 @@
 			</div>
 		</div> {{-- end of col-md-8 --}}	
 	</div>
-	<div class="row">
-		<div class="text-center">	
-			{!! $accessions->links(); !!}
-		</div>
-	</div>
-	
-				
+		
 
-	
+
+	</div>
 @endsection
+		
+	

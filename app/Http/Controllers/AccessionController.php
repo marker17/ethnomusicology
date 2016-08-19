@@ -17,18 +17,84 @@ use Session;
 
 
 
+
 class AccessionController extends Controller
 {
+    /*
+    function __construct()
+    {
+        $this->middleware('auth');
+
+    }
+
+    */
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::all();
 
-        $accessions = Accession::orderBy('id')->paginate(20);
+        $query = Accession::select('*');
+
+        if ($request->input('type')){
+
+            switch ($request->input('type')){
+
+                case 'photo':
+
+                    $query->where('category_id', 1);
+
+                    break;
+
+                case 'Field Notes':
+
+                    $query->where('category_id', 2);
+
+                    break;
+                case 'Audio Recording':
+
+                    $query->where('category_id', 3);
+
+                    break;
+
+                case 'Instrument':
+
+                    $query->where('category_id', 4);
+
+                    break;
+
+                case 'Music Scores':
+
+                    $query->where('category_id', 5);
+
+                    break;
+
+                case 'Video':
+
+
+                    $query->where('category_id', 6);
+
+                    break;
+
+                case 'Vertical Files':
+
+                    $query->where('category_id', 7);
+
+                    break;
+
+               
+
+
+            }
+        }
+
+
+        $accessions = $query->paginate(20);
+      
 
         return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
     }
@@ -165,4 +231,11 @@ class AccessionController extends Controller
 
         return redirect()->route('accessions.index');
     }
+
+    
+
+
+
+
+
 }

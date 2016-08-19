@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Accession;
+
+
+
 use App\Http\Requests;
 
 use App\Category;
@@ -54,6 +58,19 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
+       /**
+        $categories = Category::all();
+
+        $accessions = Accession::where('category_id', '=', $category_id)->get();
+
+        return view('categories.show')->withAccession($accessions);
+    **/
+
+        $categories = Category::all();
+        $accessions = Accession::where('category_name', '=', '$category_name')->get();
+
+
+        return view('categories.show')->withCategories($categories)->withAccessions($accessions);
        
     }
 
@@ -104,6 +121,11 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
 
     }
+
+
+
+    
+
 }
 
 //return redirect()->route('accessions.show', $accession->id);
