@@ -34,11 +34,12 @@ class AccessionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request){
+    
         $categories = Category::all();
 
         $query = Accession::select('*');
+
 
         if ($request->input('type')){
 
@@ -85,25 +86,43 @@ class AccessionController extends Controller
                     $query->where('category_id', 7);
 
                     break;
-
-               
-
-
             }
+
+            $accessions = $query->paginate(20);
+            return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
+           
         }
+        else{
 
 
-        $accessions = $query->paginate(20);
-      
+           
+          
 
-        return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
+           
+
+
+
+
+            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+     
+            $accessions = Accession::where('groupcountry','LIKE','%'.$search.'%')->orderBy('groupcountry')->paginate(20);
+                       
+     
+            return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
+        }
+            
     }
+
+
+    
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
+
     public function create()
     {
 
@@ -118,6 +137,8 @@ class AccessionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
+
     public function store(Request $request)
     {
         $this->validate($request, array(

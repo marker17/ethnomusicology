@@ -28,13 +28,6 @@ Route::get('about', 'PagesController@getAbout');
 
 
 
-
-
-
-
-
-
-
 Route::resource('accessions', 'AccessionController');
 
 
@@ -46,10 +39,7 @@ Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
 
 
-Route::get('categories/{category_name}', [
 
-	'uses' => 'CategoryController@getCategory', 'as' => 'categories.indexExternal'
-]);
 
 
 //collectioncontroller
@@ -64,7 +54,15 @@ Route::get('collections', [
 	'uses' => 'CollectionController@getIndex', 'as' => 'collections.index'
 ]);
 
-//pagescontroller
+//search
+
+Route::get('queries', [
+	'uses' => 'QueryController@search', 'as' => 'queries.search'
+]);
+
+
+
+
 
 
 

@@ -67,8 +67,7 @@ class CategoryController extends Controller
     **/
 
         $categories = Category::all();
-        $accessions = Accession::where('category_name', '=', '$category_name')->get();
-
+        
 
         return view('categories.show')->withCategories($categories)->withAccessions($accessions);
        

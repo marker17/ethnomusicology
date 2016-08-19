@@ -21,11 +21,17 @@
                 <li class="{{ Request::is('policies') ? "active" : ""}}"><a href="/policies">Policies</a></li>
                 <li class="{{ Request::is('contact') ? "active" : ""}}"><a href="/contact">Contact Us</a></li>
             </ul>
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control search-query"  placeholder="Search">
-                </div>
-            </form>
+           
+            {!! Form::open(['method'=>'GET','url'=>'accessions','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+               
+                {{Form::text('search', null, array('placeholder'=>'Basic Search', 'class' => 'form-control search-query')) }} 
+       
+                <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
+    
+               
+            {!! Form::close() !!}
+
+
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Login</a></li>
             </ul>
