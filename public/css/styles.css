@@ -114,11 +114,15 @@ word-wrap:break-word;
 
 
 #tdedit{
-    padding-left:0.5px;
+    padding-left:1px;
 
 }
 
 
+#tdview{
+    padding-right:1px;
+
+}
 
 
 input.search-query {

@@ -64,7 +64,7 @@
 									<td>{{substr($accession->groupcountry, 0, 20) }}{{ strlen($accession->author)>20 ? "…" : "" }}</td>
 									<td>{{substr($accession->year, 0, 20) }}{{ strlen($accession->year)>20 ? "…" : "" }}</td>
 									<td>{{substr($accession->description, 0, 30) }}{{ strlen($accession->description)>50 ? "…" : "" }}</td>
-									<td>
+									<td id="tdview">
 										<a href="{{ route('accessions.show', $accession->id) }}" class="btn btn-danger btn-sm">View
 									</td>
 									<td id="tdedit">

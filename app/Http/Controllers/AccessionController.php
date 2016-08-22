@@ -38,79 +38,114 @@ class AccessionController extends Controller
     
         $categories = Category::all();
 
-        $query = Accession::select('*');
 
+        $accessions =  Accession::orderBy('id', 'asc')->paginate(10);
+
+        
+        
+        $query = Accession::select('*');
 
         if ($request->input('type')){
 
             switch ($request->input('type')){
+                case 'All':
 
-                case 'photo':
+                    //$accessions = Accession::orderBy('id', 'asc')->paginate(10);
 
-                    $query->where('category_id', 1);
+                    break;
+
+                case 'Photo':
+
+                    $query->where('category_id', 2);
 
                     break;
 
                 case 'Field Notes':
 
-                    $query->where('category_id', 2);
-
-                    break;
-                case 'Audio Recording':
-
                     $query->where('category_id', 3);
 
                     break;
-
-                case 'Instrument':
+                case 'Audio Recording':
 
                     $query->where('category_id', 4);
 
                     break;
 
-                case 'Music Scores':
+                case 'Instrument':
 
                     $query->where('category_id', 5);
+
+                    break;
+
+                case 'Music Scores':
+
+                    $query->where('category_id', 6);
 
                     break;
 
                 case 'Video':
 
 
-                    $query->where('category_id', 6);
+                    $query->where('category_id', 7);
 
                     break;
 
                 case 'Vertical Files':
 
-                    $query->where('category_id', 7);
+                    $query->where('category_id', 8);
 
                     break;
             }
 
-            $accessions = $query->paginate(20);
+            $accessions = $query->orderBy('id')->paginate(10);
             return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
-           
+
+
         }
-        else{
 
 
-           
-          
+        
 
-           
-
-
-
-
-            $search = \Request::get('search'); //<-- we use global request to get the param of URI
+        $search = \Request::get('search'); //<-- we use global request to get the param of URI
      
-            $accessions = Accession::where('groupcountry','LIKE','%'.$search.'%')->orderBy('groupcountry')->paginate(20);
+        if ($request->input('search')){
+            $accessions = Accession::where('groupcountry','LIKE','%'.$search.'%')->orWhere('description', 'LIKE', '%'.$search.'%')->orderBy('groupcountry')->paginate(10);
+
+
+            $accessions = Accession::where('description','LIKE','%'.$search.'%')->orWhere('description', 'LIKE', '%'.$search.'%')->orderBy('description')->paginate(10);
+
+            $accessions = Accession::where('accession_no','LIKE','%'.$search.'%')->orWhere('accession_no', 'LIKE', '%'.$search.'%')->orderBy('id')->paginate(10);
+
+            $accessions = Accession::where('author','LIKE','%'.$search.'%')->orWhere('author', 'LIKE', '%'.$search.'%')->orderBy('id')->paginate(10);
                        
      
             return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
         }
-            
+        else{
+            $accessions =  Accession::orderBy('id', 'asc')->paginate(10);
+            return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
+
+        }
+
+        
+       
+       
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
     }
 
 

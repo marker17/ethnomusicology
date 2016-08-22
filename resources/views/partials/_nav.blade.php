@@ -22,7 +22,7 @@
                 <li class="{{ Request::is('contact') ? "active" : ""}}"><a href="/contact">Contact Us</a></li>
             </ul>
            
-            {!! Form::open(['method'=>'GET','url'=>'accessions','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+            {!! Form::open(['method'=>'GET','url'=>'accessions','class'=>'navbar-form navbar-left'])  !!}
                
                 {{Form::text('search', null, array('placeholder'=>'Basic Search', 'class' => 'form-control search-query')) }} 
        
