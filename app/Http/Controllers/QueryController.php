@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Accession;
+
+use App\Category;
+
+use DB;;
+
 class QueryController extends Controller
 {
     
@@ -13,13 +19,38 @@ class QueryController extends Controller
 
     public function search(Request $request){
 
-	    // Gets the query string from our form submission 
-	    $query = Request::input('search');
-	    // Returns an array of articles that have the query string located somewhere within 
-	    // our articles titles. Paginates them so we can break up lots of search results.
-	    $accessions = DB::table('accessions')->where('title', 'LIKE', '%' . $query . '%')->paginate(10);
+    	$categories = Category::all();
 
-	    // returns a view and passes the view the list of articles and the original query.
-	    return view('page.search', compact('accessions', 'query'));
+
+    	$find = $request->input('find'); 
+	   
+
+        $accessions = DB::table('accessions')
+        	->leftJoin('categories', 'accessions.category_id', '=', 'categories.id')
+        	->where('category_name','LIKE','%'.$find.'%')
+        	->get();
+
+
+        return view('queries.index')->withAccessions($accessions)->withCategories($categories);
+
+
+
+    /*
+        $accessions = DB::table('accessions')
+            ->join('categories', 'accessions.category_id', '=', 'categories.id')
+            ->where('category_name','LIKE','%'.$search.'%')->get();
+
+            return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
+
+    */
+
+
+
+
+
+
+
+
+
 	}
 }

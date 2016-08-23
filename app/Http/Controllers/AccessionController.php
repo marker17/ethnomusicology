@@ -14,8 +14,9 @@ use App\Category;
 
 use Session;
 
+use DB;
 
-
+    
 
 
 class AccessionController extends Controller
@@ -34,14 +35,14 @@ class AccessionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+
     public function index(Request $request){
     
         $categories = Category::all();
 
 
-        $accessions =  Accession::orderBy('id', 'asc')->paginate(10);
-
-        
+      
         
         $query = Accession::select('*');
 
@@ -95,6 +96,7 @@ class AccessionController extends Controller
                     $query->where('category_id', 8);
 
                     break;
+
             }
 
             $accessions = $query->orderBy('id')->paginate(10);
@@ -106,39 +108,50 @@ class AccessionController extends Controller
 
         
 
-        $search = \Request::get('search'); //<-- we use global request to get the param of URI
+        $search = $request->input('search'); //<-- we use global request to get the param of URI
+        
+    
+        
      
-        if ($request->input('search')){
-            $accessions = Accession::where('groupcountry','LIKE','%'.$search.'%')->orWhere('description', 'LIKE', '%'.$search.'%')->orderBy('groupcountry')->paginate(10);
+        if($search){
 
 
-            $accessions = Accession::where('description','LIKE','%'.$search.'%')->orWhere('description', 'LIKE', '%'.$search.'%')->orderBy('description')->paginate(10);
 
-            $accessions = Accession::where('accession_no','LIKE','%'.$search.'%')->orWhere('accession_no', 'LIKE', '%'.$search.'%')->orderBy('id')->paginate(10);
 
-            $accessions = Accession::where('author','LIKE','%'.$search.'%')->orWhere('author', 'LIKE', '%'.$search.'%')->orderBy('id')->paginate(10);
-                       
-     
+            
+
+            $accessions = Accession::where('groupcountry','LIKE','%'.$search.'%')
+            ->orWhere('description', 'LIKE', '%'.$search.'%')
+            ->orWhere('author', 'LIKE', '%'.$search.'%')
+            ->orWhere('accession_no','LIKE','%'.$search.'%')
+            ->orWhere('year','LIKE','%'.$search.'%')
+            ->paginate(10);
+
+
+            
+
             return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
-        }
-        else{
-            $accessions =  Accession::orderBy('id', 'asc')->paginate(10);
+           
+        }else{
+
+           
+            $accessions = Accession::orderBy('id', 'asc')->paginate(10);
             return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
+
 
         }
 
         
        
-       
+
+
+
+
+    }
+    
+
         
-
-
-
-
-
-
-
-
+            
 
 
 
@@ -146,7 +159,7 @@ class AccessionController extends Controller
 
 
               
-    }
+    
 
 
     
@@ -288,10 +301,30 @@ class AccessionController extends Controller
         return redirect()->route('accessions.index');
     }
 
-    
 
 
+    public function search(Request $request){
+
+        $categories = Category::all();
 
 
+        /*
+        $search = $request->input('search'); 
+       
+
+        $accessions = DB::table('accessions')
+            ->leftJoin('categories', 'accessions.category_id', '=', 'categories.id')
+            ->where('category_name','=','%'.$search.'%')
+            ->get();
+
+
+        return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
+
+        */
+       
+
+
+        }
+    }
 
 }

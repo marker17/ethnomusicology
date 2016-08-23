@@ -33,6 +33,8 @@ Route::resource('accessions', 'AccessionController');
 
 
 
+
+
 //category
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
@@ -63,6 +65,12 @@ Route::get('queries', [
 
 
 
+Route::get('queries', [
+	'uses' => 'AccessionController@getSearch', 'as' => 'queries.search'
+]);
+
+
+Routes::get('accession/search', 'AccessionController@search')
 
 
 
