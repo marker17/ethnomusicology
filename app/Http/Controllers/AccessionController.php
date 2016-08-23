@@ -306,25 +306,22 @@ class AccessionController extends Controller
     public function search(Request $request){
 
         $categories = Category::all();
+        $keyword = $request->input('keyword');
+
+        $accessions = Accession::select('*')
+                    ->leftJoin('categories', 'categories.id', '=', 'accessions.category_id')
+                    ->where('accession_no', 'like', '%' . $keyword . '%')
+                    ->orwhere('author', 'like', '%' . $keyword . '%')
+                    ->orwhere('groupcountry', 'like', '%' . $keyword . '%')
+                    ->orwhere('year', 'like', '%' . $keyword . '%')
+                    ->orwhere('description', 'like', '%' . $keyword . '%')
+                    ->orwhere('categories.category_name', 'like', '%' . $keyword . '%')
+                    ->paginate(10);
 
 
-        /*
-        $search = $request->input('search'); 
-       
-
-        $accessions = DB::table('accessions')
-            ->leftJoin('categories', 'accessions.category_id', '=', 'categories.id')
-            ->where('category_name','=','%'.$search.'%')
-            ->get();
+        return view('accessions.index', compact('accessions', 'categories'));
 
 
-        return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
-
-        */
-       
-
-
-        }
     }
 
 }

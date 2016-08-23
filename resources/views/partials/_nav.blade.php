@@ -22,9 +22,9 @@
                 <li class="{{ Request::is('contact') ? "active" : ""}}"><a href="/contact">Contact Us</a></li>
             </ul>
            
-            {!! Form::open(['method'=>'GET','url'=>'accessions','class'=>'navbar-form navbar-left'])  !!}
+            {!! Form::open(['method'=>'GET', 'url' => 'accessions/search', 'class'=>'navbar-form navbar-left'])  !!}
                
-                {{Form::text('search', null, array('placeholder'=>'Basic Search', 'class' => 'form-control search-query')) }} 
+                {{Form::text('keyword', Request::input('keyword') ? Request::input('keyword') : null, array('placeholder'=>'Basic Search', 'class' => 'form-control search-query')) }} 
        
                 <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
     
