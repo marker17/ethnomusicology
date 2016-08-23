@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Accession;
 
-
-
 use App\Http\Requests;
 
 use App\Category;
@@ -22,7 +20,6 @@ class CategoryController extends Controller
         $this->middleware('auth');
 
     }
-
 
 
     /**

@@ -24,9 +24,10 @@
            
             {!! Form::open(['method'=>'GET', 'url' => 'accessions/search', 'class'=>'navbar-form navbar-left'])  !!}
                
-                {{Form::text('keyword', Request::input('keyword') ? Request::input('keyword') : null, array('placeholder'=>'Basic Search', 'class' => 'form-control search-query')) }} 
-       
-                <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
+                {{Form::text('keyword', Request::input('keyword') ? Request::input('keyword') : null, array('placeholder'=>'Basic Search', 'class' => 'form-control search-query')) }}
+
+
+                {{ Form::submit('', array('class' => 'btn-invisible' , 'tabindex' =>'-1')) }}
     
                
             {!! Form::close() !!}
@@ -37,7 +38,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::check())
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello  {{ Auth::user()->name }} <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Accessions</a></li>
                     <li><a href="#">Categories</a></li>

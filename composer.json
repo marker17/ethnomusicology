@@ -10,7 +10,8 @@
         "ext-mbstring": "*",
         "ext-mysql": "*",
         "laravelcollective/html": "^5.2",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "filp/whoops": "^2.1"
 
     },
     "require-dev": {
