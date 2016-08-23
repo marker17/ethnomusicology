@@ -18,9 +18,20 @@ Route::get('policies', 'PagesController@getPolicies');
 Route::get('contact', 'PagesController@getContact');
 Route::get('about', 'PagesController@getAbout');
 
-// Accesions
+// Accessions
 Route::get('accessions/search', 'AccessionController@search');
 Route::resource('accessions', 'AccessionController');
 
 //Category
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
+Route::auth();
+
+//Authentication Routes
+Route::get('logout', ['as' => 'logout', 'uses' =>'Auth\AuthController@logout']);
+Route::post('login', ['as' => 'login', 'uses' => 'Auth\AuthController@login']);
+Route::get('login', 'Auth\AuthController@showLoginForm');
+
+//Registration routes
+Route::post('auth/register', 'Auth\AuthController@register');
+Route::get('auth/register', 'Auth\AuthController@showRegistrationForm');
+

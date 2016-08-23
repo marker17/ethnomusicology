@@ -8,11 +8,12 @@
 
 		<div class="col-md-8">
 			<h1>{{ $accession->accession_no }}</h1>
-			<p><a href="{{ (route('collections.single', $accession->accession_no)) }}">{{ (route('collections.single', $accession->accession_no)) }}</a></p>
+			<p><a href="{{ (route('accessions.show', $accession->accession_no)) }}">{{ (route('accessions.show', $accession->accession_no)) }}</a></p>
 
 
 		</div>
 		<div class="col-md-4">
+		@if (Auth::check())
 			<div class="well">
 				<div class="row">
 					<div class="col-sm-6">
@@ -37,7 +38,7 @@
 
 
 			</div>
-
+		@endif
 		</div>
 	</div>
 	

@@ -5,9 +5,11 @@
 @section('content')
 
 	<div class="row">
-		<div style="text-align:right;">
-			<a href="{{ route('accessions.create') }}" class="btn btn-primary btn-h1-spacing">Create New Post</a>
-		</div>
+		@if (Auth::check())
+			<div style="text-align:right;">
+				<a href="{{ route('accessions.create') }}" class="btn btn-primary btn-h1-spacing">Create New Post</a>
+			</div>
+		@endif
 
 		<div class="col-md-2">
 
@@ -63,11 +65,14 @@
 									<td>{{substr($accession->groupcountry, 0, 20) }}{{ strlen($accession->author)>20 ? "…" : "" }}</td>
 									<td>{{substr($accession->year, 0, 20) }}{{ strlen($accession->year)>20 ? "…" : "" }}</td>
 									<td>{{substr($accession->description, 0, 30) }}{{ strlen($accession->description)>50 ? "…" : "" }}</td>
-									
-									<td id="tdedit" class="text-right">
-										<a href="{{ route('accessions.show', $accession->id) }}" class="btn btn-danger btn-sm">View
-										</a> <a href="{{ route('accessions.edit', $accession->id) }}" class="btn btn-danger btn-sm">Edit</a>
-									</td>
+
+									@if (Auth::check())
+										<td id="tdedit" class="text-right">
+											<a href="{{ route('accessions.show', $accession->id) }}" class="btn btn-danger btn-sm">View
+											</a> <a href="{{ route('accessions.edit', $accession->id) }}" class="btn btn-danger btn-sm">Edit</a>
+										</td>
+									@endif
+
 								</tr>
 							@endforeach
 						</tbody>

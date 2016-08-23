@@ -17,7 +17,7 @@
             <ul class="nav navbar-nav">
                 <li class="{{ Request::is('/') ? "active" : ""}}"><a href="/">Home <span class="sr-only">(current)</span></a></li>
                 <li class="{{ Request::is('josemaceda') ? "active" : ""}}"><a href="/josemaceda">Jose Maceda</a></li>
-                <li class="{{ Request::is('index') ? "active" : ""}}"><a href="/collection">Collection</a></li>
+                <li class="{{ Request::is('index') ? "active" : ""}}"><a href="/accessions">Collection</a></li>
                 <li class="{{ Request::is('policies') ? "active" : ""}}"><a href="/policies">Policies</a></li>
                 <li class="{{ Request::is('contact') ? "active" : ""}}"><a href="/contact">Contact Us</a></li>
             </ul>
@@ -32,9 +32,30 @@
             {!! Form::close() !!}
 
 
+           
+
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
-            </ul>
+                @if (Auth::check())
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Accessions</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{ route('logout') }}">Logout</a></li>
+                  </ul>
+                </li>
+                @else
+                    <p class="navbar-btn">
+                        <a href="{{ route('login') }}" class="btn btn-default">Login</a>
+                    </p>
+                @endif
+
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
         </div><!-- /.navbar-collapse -->
             
     </div><!-- /.container-->

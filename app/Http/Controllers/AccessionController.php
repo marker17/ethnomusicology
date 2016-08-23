@@ -15,10 +15,7 @@ use App\Category;
 use Session;
 
 use DB;
-
-    
-
-
+  
 class AccessionController extends Controller
 {
     /*
@@ -27,34 +24,24 @@ class AccessionController extends Controller
         $this->middleware('auth');
 
     }
-
     */
-
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     
-
     public function index(Request $request){
     
         $categories = Category::all();
-
-
       
-        
         $query = Accession::select('*');
 
         if ($request->input('type')){
 
             switch ($request->input('type')){
-                case 'All':
-
-                    //$accessions = Accession::orderBy('id', 'asc')->paginate(10);
-
-                    break;
-
+               
                 case 'Photo':
 
                     $query->where('category_id', 2);
@@ -66,6 +53,7 @@ class AccessionController extends Controller
                     $query->where('category_id', 3);
 
                     break;
+
                 case 'Audio Recording':
 
                     $query->where('category_id', 4);
@@ -96,74 +84,33 @@ class AccessionController extends Controller
                     $query->where('category_id', 8);
 
                     break;
-
             }
 
             $accessions = $query->orderBy('id')->paginate(10);
-            return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
-
-
+            return view('accessions.index', compact('accessions', 'categories'));
         }
-
-
-        
 
         $search = $request->input('search'); //<-- we use global request to get the param of URI
         
-    
-        
-     
         if($search){
 
-
-
-
-            
-
             $accessions = Accession::where('groupcountry','LIKE','%'.$search.'%')
-            ->orWhere('description', 'LIKE', '%'.$search.'%')
-            ->orWhere('author', 'LIKE', '%'.$search.'%')
-            ->orWhere('accession_no','LIKE','%'.$search.'%')
-            ->orWhere('year','LIKE','%'.$search.'%')
-            ->paginate(10);
+                        ->orWhere('description', 'LIKE', '%'.$search.'%')
+                        ->orWhere('author', 'LIKE', '%'.$search.'%')
+                        ->orWhere('accession_no','LIKE','%'.$search.'%')
+                        ->orWhere('year','LIKE','%'.$search.'%')
+                        ->paginate(10);
 
-
-            
-
-            return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
-           
-        }else{
+            return view('accessions.index', compact('accessions', 'categories'));
+        }
+        else{
 
            
             $accessions = Accession::orderBy('id', 'asc')->paginate(10);
-            return view('accessions.index')->withAccessions($accessions)->withCategories($categories);
-
-
+            return view('accessions.index', compact('accessions', 'categories'));
         }
-
-        
-       
-
-
-
-
     }
     
-
-        
-            
-
-
-
-
-
-
-              
-    
-
-
-    
-
     /**
      * Show the form for creating a new resource.
      *
@@ -219,10 +166,6 @@ class AccessionController extends Controller
     {
         $accession = Accession::find($id);
 
-
-        
-
-
         return view('accessions.show')->withAccession($accession);
     }
 
@@ -234,8 +177,6 @@ class AccessionController extends Controller
      */
     public function edit($id){
 
-
-
         $accession = Accession::find($id);
 
         $categories = Category::all();
@@ -245,9 +186,7 @@ class AccessionController extends Controller
             $cats[$category->id] = $category->name;
         }
 
-
-
-        return view('accessions.edit')->withAccession($accession)->withCategories($cats);
+        return view('accessions.edit', compact('accessions', 'categories'));
     }
 
     /**
@@ -286,22 +225,18 @@ class AccessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy($id)
     {
         
-
         $accession = Accession::find($id);
 
         $accession->delete();
-
-        //commenting this out since sweet alert has confimation when deleted
-        //Session::flash('success', 'The accession was successfully deleted.');
-
+       
+        //Session::flash('success', 'The accession was successfully deleted.');    <--commenting this out since sweetalert.js already has confimation when deleted
 
         return redirect()->route('accessions.index');
     }
-
-
 
     public function search(Request $request){
 
@@ -320,8 +255,5 @@ class AccessionController extends Controller
 
 
         return view('accessions.index', compact('accessions', 'categories'));
-
-
     }
-
 }
