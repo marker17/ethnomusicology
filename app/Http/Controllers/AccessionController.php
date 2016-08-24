@@ -21,7 +21,12 @@ class AccessionController extends Controller
     
     function __construct()
     {
-        $this->middleware('auth', ['except' => 'index']);
+        $this->middleware('auth', ['except' => 
+            [
+                'index',
+                'show'
+            ]
+        ]);
 
     }
     
