@@ -40,8 +40,8 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello  {{ Auth::user()->name }} <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="/accessions">Accessions</a></li>
-                    <li><a href="/categories">Categories</a></li>
+                    <li><a href="{{ route('accessions.index') }}">Accessions</a></li>
+                    <li><a href="{{ route('categories.index') }}">Categories</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ route('logout') }}">Logout</a></li>
                   </ul>

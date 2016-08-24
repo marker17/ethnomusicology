@@ -13,28 +13,27 @@
 
 		<div class="col-md-2">
 
-		
 			<table class="table">
 				<thead>
 					<th>Categories</th>
-
-
 				</thead>
 				<tbody>
 
 					@foreach ($categories as $category)
-					<tr>
-						 
-            </div>
-
-
-						<td><a href="{{url('accessions?type='.$category->category_name) }}">{{$category->category_name}}</a></td>
-					
-					</tr>
+						<tr>
+							<td>
+								<a href="{{url('accessions?type='.$category->category_name) }}">{{$category->category_name}}</a>
+							</td>
+						</tr>
 					@endforeach
-
 				</tbody>
 			</table>
+
+			@if (Auth::check())
+			<div style="text-align:left;">
+				<a href="{{ route('categories.index') }}" class="btn btn-success btn-block">Create New Category</a>
+			</div>
+		@endif
 		
 		</div>
 		<div class="col-md-10">
@@ -87,8 +86,4 @@
 			{!! $accessions->links(); !!}
 		</div>
 	</div>
-	
-				
-
-	
 @endsection

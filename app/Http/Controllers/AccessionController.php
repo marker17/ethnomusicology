@@ -24,12 +24,14 @@ class AccessionController extends Controller
         $this->middleware('auth', ['except' => 
             [
                 'index',
-                'show'
+                'show',
+                'search'
             ]
         ]);
 
     }
-    
+        
+
     
     /**
      * Display a listing of the resource.
@@ -191,13 +193,16 @@ class AccessionController extends Controller
         $accession = Accession::find($id);
 
         $categories = Category::all();
+
         $cats = array();
         foreach($categories as $category){
 
-            $cats[$category->id] = $category->name;
+            $cats[$category->id] = $category->category_name;
         }
 
-        return view('accessions.edit', compact('accessions', 'categories'));
+
+
+        return view('accessions.edit')->withAccession($accession)->withCategories($cats);
     }
 
     /**

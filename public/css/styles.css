@@ -230,3 +230,35 @@ nav-list {
     text-shadow: 0 1px 0 rgba(255,255,255,0.5);
     text-transform: uppercase;
 }
+
+
+
+
+.left{
+
+    font-weight:bold;
+}
+
+
+.imageframe{
+    height:335px;
+    width:100%;
+    padding:1px;
+    border: 2px solid #37FF00;
+    margin:auto;
+    background-color: #ff00ff;
+    border-radius: 4px;
+}
+
+.smallimage{
+    height:50px;
+    width:100%;
+    padding:1px;
+    border: 2px solid #37FF00;
+    margin:auto;
+    background-color: #ff00ff;
+    border-radius: 4px;
+    margin-bottom: 5px;
+
+
+}

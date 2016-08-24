@@ -1,4 +1,19 @@
 
+    $('#table1 tr').each(function() {
+        if ($(this).find('td:empty').length) $(this).remove();
+        
+    });
+
+    
+
+    $('#table3 tr td').each(function() {
+        if ($(this).text() === '0'){
+            $('#table3 tr').remove();
+        }
+    });
+
+
+
     document.querySelector('#from1').addEventListener('submit', function(e) {
         var form = this;
         e.preventDefault();
@@ -28,4 +43,10 @@
             }
         });
     });
+/*
 
+    $('#table1 tr').each(function() {
+        if ($(this).find('td:empty').length) $(this).remove();
+    });
+
+*/

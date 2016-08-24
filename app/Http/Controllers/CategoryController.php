@@ -14,13 +14,13 @@ use Session;
 
 class CategoryController extends Controller
 {   
-
+    /*
     function __construct()
     {
         $this->middleware('auth');
 
     }
-
+    
 
     /**
      * Display a listing of the resource.

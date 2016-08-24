@@ -21,20 +21,17 @@ Route::get('about', 'PagesController@getAbout');
 // Accessions
 Route::get('accessions/search', 'AccessionController@search');
 Route::resource('accessions', 'AccessionController');
-//Category
-//Route::resource('categories', 'CategoryController', ['except' => ['create']]);
-Route::auth();
+
+// Category
+Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
 //Authentication Routes
+Route::auth();
 Route::get('logout', ['as' => 'logout', 'uses' =>'Auth\AuthController@logout']);
 Route::post('login', ['as' => 'login', 'uses' => 'Auth\AuthController@login']);
 Route::get('login', 'Auth\AuthController@showLoginForm');
 
-//Registration routes
+// Registration routes
 Route::post('register', ['as' => 'register', 'uses' =>'Auth\AuthController@register']);
-
 Route::get('register', 'Auth\AuthController@showRegistrationForm');
 
-//Route::resource('accessions', 'AccessionController', ['middleware' => 'auth', function () {
-    
-//}]);
