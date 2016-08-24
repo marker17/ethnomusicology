@@ -18,13 +18,13 @@ use DB;
   
 class AccessionController extends Controller
 {
-    /*
+    
     function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'index']);
 
     }
-    */
+    
     
     /**
      * Display a listing of the resource.
@@ -84,6 +84,10 @@ class AccessionController extends Controller
                     $query->where('category_id', 8);
 
                     break;
+
+                default:
+
+                    $query->orderBy('id', 'asc')->paginate(10);
             }
 
             $accessions = $query->orderBy('id')->paginate(10);
@@ -119,11 +123,13 @@ class AccessionController extends Controller
     
 
     public function create()
-    {
+    {   
+      
 
         $categories=Category::all();
 
         return view('accessions.create')->withCategories($categories);
+        
     }
 
     /**

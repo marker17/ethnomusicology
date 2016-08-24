@@ -40,15 +40,16 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello  {{ Auth::user()->name }} <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Accessions</a></li>
-                    <li><a href="#">Categories</a></li>
+                    <li><a href="/accessions">Accessions</a></li>
+                    <li><a href="/categories">Categories</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ route('logout') }}">Logout</a></li>
                   </ul>
                 </li>
                 @else
                     <p class="navbar-btn">
-                        <a href="{{ route('login') }}" class="btn btn-default">Login</a>
+                        <a href="{{ route('login') }}" class="btn btn-default">Log In</a>    
+                        <a href="{{ route('register') }}" class="btn btn-default">Sign Up</a>
                     </p>
                 @endif
 

@@ -75,7 +75,7 @@ class CategoryController extends Controller
         $categories = Category::all();
         
 
-        return view('categories.show')->withCategories($categories)->withAccessions($accessions);
+        return view('categories.show', compact('accessions', 'categories'));
        
     }
 
@@ -119,18 +119,11 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        //commenting this out since sweet alert has confimation when deleted
-        //Session::flash('success', 'The category was successfully deleted.');
+        
+        //Session::flash('success', 'The category was successfully deleted.'); <--/commenting this out since sweetalert has confimation when deleted
 
 
         return redirect()->route('categories.index');
-
     }
-
-
-
-    
-
 }
 
-//return redirect()->route('accessions.show', $accession->id);

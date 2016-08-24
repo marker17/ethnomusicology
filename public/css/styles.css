@@ -68,64 +68,34 @@ body{
 
 }
 
-.error-template {padding: 40px 15px;text-align: center;}
-.error-actions {margin-top:15px;margin-bottom:15px;}
-.error-actions .btn { margin-right:10px; }
+/* sets the text color of the signup */
 
-/*
-    TABLES
+.navbar-btn a{
 
+    background-color:#096804;
+    border-color:#096804;
+    color:#d6d57e;
+    font-size: 13px;
+}
 
-
-table {
-table-layout:auto;
- width:100%;
-word-wrap:break-word;
-
+.navbar-btn > a:hover,
+.navbar-btn > a:focus,
+.navbar-btn > a:active{
+    color:#fffda8;
+    background-color: transparent;
+    border-color:#096804;
+    font-size: 13px;
 }
 
 
-.
+.navbar-btn > .active > a,
+.navbar-btn > .active > a:hover,
+.navbar-btn > .active > a:focus{
 
-
-.fixed-table {
-     
-    width: 100%;
-    table-layout: fixed;
-
-    
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 0; 
-}
-.fixed-table td {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; 
-}
-
-.nowrap {
-    
-    white-space: nowrap;
-}
-
-
-
-*/
-
-
-
-/*
-
-.table {
-    table-layout:fixed;
-  
-    word-wrap:break-word;
+    color:#fffda8;
+    background-color: transparent;
 
 }
-
-*/
-
 
 
 #tdedit{
