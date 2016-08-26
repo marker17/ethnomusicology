@@ -1,3 +1,10 @@
+    $(document).ready( function () {
+        $('#accession').DataTable();
+    } );
+    
+
+
+
 
     $('#table1 tr').each(function() {
         if ($(this).find('td:empty').length) $(this).remove();

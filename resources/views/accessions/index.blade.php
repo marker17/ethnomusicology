@@ -42,24 +42,39 @@
 			<div class="row">
 
 				<div class="table-responsive">
-					<table class="table table-striped">
+					<table class="table table-bordered" id="accession">
 						<thead>
 							<th>Accession No.</th>
+
+						
+
 							<th>Type</th>
+
+							
 							<th>Researchers</th>
 							<th>Country</th>
 							<th>Year</th>
 							<th>Description</th>
 							<th></th>
+
+							
 						</thead>
+
+					
 						<tbody>
 
+						
+				
 							@foreach ($accessions as $accession)
 
 							
 								<tr>
 									<th><a href="{{route('accessions.show', $accession->id)}}">{{$accession->accession_no}}</a></th>
-									<td>{{ ($accession->category->category_name) }}</td>
+									
+
+									<td>{{ ($accession->category->category_name) }}</td> 
+
+									
 									<td>{{substr($accession->author, 0, 25) }}{{ strlen($accession->author)>25 ? "…" : "" }}</td></td>
 									<td>{{substr($accession->groupcountry, 0, 20) }}{{ strlen($accession->author)>20 ? "…" : "" }}</td>
 									<td>{{substr($accession->year, 0, 20) }}{{ strlen($accession->year)>20 ? "…" : "" }}</td>
@@ -72,18 +87,50 @@
 										</td>
 									@endif
 
+									
 								</tr>
 							@endforeach
-						</tbody>
 
+							
+						</tbody>
+						
 					</table>
 				</div>
 			</div>
 		</div> {{-- end of col-md-8 --}}	
 	</div>
+
+	{{--
 	<div class="row">
 		<div class="text-center">	
 			{!! $accessions->links(); !!}
 		</div>
 	</div>
+
+	--}}
 @endsection
+
+
+
+
+@section('scripts')
+	
+		{!! HTML::script('js/myscripts.js') !!} 
+		
+	
+@endsection
+
+{{--
+
+@section('scripts')
+<script>		
+$(document).ready( function () {
+    $('#accession').DataTable();
+} );
+
+</script>	
+@endsection
+
+--}}
+
+

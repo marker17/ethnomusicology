@@ -11,7 +11,8 @@
         "ext-mysql": "*",
         "laravelcollective/html": "^5.2",
         "doctrine/dbal": "^2.5",
-        "filp/whoops": "^2.1"
+        "filp/whoops": "^2.1",
+        "yajra/laravel-datatables-oracle": "~6.0"
 
     },
     "require-dev": {

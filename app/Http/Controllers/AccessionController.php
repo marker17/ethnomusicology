@@ -1,12 +1,16 @@
 <?php
+use App\Http\Controllers\Controller;
+
+
+use Yajra\Datatables\Datatables;
 
 namespace App\Http\Controllers;
+
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Http\Controllers\Controller;
 
 use App\Accession;
 
@@ -15,6 +19,8 @@ use App\Category;
 use Session;
 
 use DB;
+
+
   
 class AccessionController extends Controller
 {
@@ -94,10 +100,10 @@ class AccessionController extends Controller
 
                 default:
 
-                    $query->orderBy('id', 'asc')->paginate(10);
+                    $query->orderBy('id', 'asc')->get();           //->paginate(10);
             }
 
-            $accessions = $query->orderBy('id')->paginate(10);
+            $accessions = $query->orderBy('id')->get();          //->paginate(10);
             return view('accessions.index', compact('accessions', 'categories'));
         }
 
@@ -272,4 +278,11 @@ class AccessionController extends Controller
 
         return view('accessions.index', compact('accessions', 'categories'));
     }
+
+
+    
+    
+
+
+
 }

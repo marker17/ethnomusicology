@@ -12,4 +12,9 @@
 
 {{ HTML::style('css/dist/sweetalert.css') }}
 
+
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+
+
+
 @yield('stylesheets') 

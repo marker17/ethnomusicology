@@ -14,7 +14,7 @@ use Session;
 
 class CategoryController extends Controller
 {   
-    /*
+    
     function __construct()
     {
         $this->middleware('auth');
