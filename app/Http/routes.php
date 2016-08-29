@@ -1,5 +1,11 @@
 <?php
 
+
+
+
+use Yajra\Datatables\Facades\Datatables;
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,6 +16,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+
 
 // Pages
 Route::get('/', 'PagesController@getIndex');
@@ -35,3 +43,11 @@ Route::get('login', 'Auth\AuthController@showLoginForm');
 Route::post('register', ['as' => 'register', 'uses' =>'Auth\AuthController@register']);
 Route::get('register', 'Auth\AuthController@showRegistrationForm');
 
+
+
+
+Route::get('api/accessions', function(){
+
+	return Datatables::eloquent(App\Accession::query())->make(true);
+
+});

@@ -14,30 +14,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/errstyle.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
-    <!-----start-wrap--------->
+    
     <div class="wrap">
-        <!-----start-content--------->
+       
         <div class="content">
-            <!-----start-logo--------->
+           
             <div class="logo">
                 <h1><a href="#"><img src="images/logo.png"/></a></h1>
                 <span><img src="images/signal.png"/>Oops! The Page you requested was not found!</span>
             </div>
-            <!-----end-logo--------->
-            <!-----start-search-bar-section--------->
+          
+            
             <div class="buttom">
                 <div class="seach_bar">
                     <p>you can go to <span><a href="/">home</a></span> page or <span><a href="/contact">contact us</a></p>
-                    <!-----start-sear-box--------->
-                    
                 </div>
             </div>
-            <!-----end-sear-bar--------->
+          
         </div>
-        <!----copy-right-------------->
+       
     <p hidden>&#169; 2014 Template by<a href="http://w3layouts.com" target="_blank">&nbsp;w3layouts</a> </p>
     </div>
     
-    <!---------end-wrap---------->
+   
 </body>
 </html>

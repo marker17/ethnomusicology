@@ -7,7 +7,7 @@
 	<div class="row">
 		@if (Auth::check())
 			<div style="text-align:right;">
-				<a href="{{ route('accessions.create') }}" class="btn btn-primary btn-h1-spacing">Create New Post</a>
+				<a href="{{ route('accessions.create') }}" class="btn btn-primary btncreate">Create New Post</a>
 			</div>
 		@endif
 
@@ -42,57 +42,19 @@
 			<div class="row">
 
 				<div class="table-responsive">
-					<table class="table table-bordered" id="accession">
+					<table class="table table-bordered" id="table-accession">
 						<thead>
+							
 							<th>Accession No.</th>
-
-						
-
-							<th>Type</th>
-
-							
-							<th>Researchers</th>
-							<th>Country</th>
-							<th>Year</th>
-							<th>Description</th>
-							<th></th>
-
-							
+							<th>title</th>
+							<th>category</th>
+							<th>country</th>
+							<th>year</th>
+							<th>description</th>
 						</thead>
 
-					
-						<tbody>
-
-						
-				
-							@foreach ($accessions as $accession)
-
+			
 							
-								<tr>
-									<th><a href="{{route('accessions.show', $accession->id)}}">{{$accession->accession_no}}</a></th>
-									
-
-									<td>{{ ($accession->category->category_name) }}</td> 
-
-									
-									<td>{{substr($accession->author, 0, 25) }}{{ strlen($accession->author)>25 ? "…" : "" }}</td></td>
-									<td>{{substr($accession->groupcountry, 0, 20) }}{{ strlen($accession->author)>20 ? "…" : "" }}</td>
-									<td>{{substr($accession->year, 0, 20) }}{{ strlen($accession->year)>20 ? "…" : "" }}</td>
-									<td>{{substr($accession->description, 0, 30) }}{{ strlen($accession->description)>50 ? "…" : "" }}</td>
-
-									@if (Auth::check())
-										<td id="tdedit" class="text-right">
-											<a href="{{ route('accessions.show', $accession->id) }}" class="btn btn-danger btn-sm">View
-											</a> <a href="{{ route('accessions.edit', $accession->id) }}" class="btn btn-danger btn-sm">Edit</a>
-										</td>
-									@endif
-
-									
-								</tr>
-							@endforeach
-
-							
-						</tbody>
 						
 					</table>
 				</div>
@@ -100,23 +62,31 @@
 		</div> {{-- end of col-md-8 --}}	
 	</div>
 
-	{{--
-	<div class="row">
-		<div class="text-center">	
-			{!! $accessions->links(); !!}
-		</div>
-	</div>
-
-	--}}
+	
 @endsection
 
 
 
 
 @section('scripts')
-	
-		{!! HTML::script('js/myscripts.js') !!} 
-		
+<script>
+	$(document).ready(function(){
+        $('#table-accession').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/accessions",
+            "columns": [
+                { data: 'accession_no'},
+                { data: 'title'},
+                { data: 'category_id'},
+                { data: 'groupcountry'},
+                { data: 'year'},
+                { data: 'description'}
+            ]
+                    
+        });
+    });
+</script>
 	
 @endsection
 

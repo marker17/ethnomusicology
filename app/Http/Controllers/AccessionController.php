@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Datatables;
 
 use App\Accession;
 
@@ -46,11 +47,22 @@ class AccessionController extends Controller
      */
     
     public function index(Request $request){
-    
+       
         $categories = Category::all();
-      
+
         $query = Accession::select('*');
 
+        $accessions = $query->orderBy('id')->get();
+            return view('accessions.index', compact('accessions', 'categories'));
+        
+
+
+
+        //this is for links that will run query according to
+        //category type
+
+
+        /*
         if ($request->input('type')){
 
             switch ($request->input('type')){
@@ -100,12 +112,16 @@ class AccessionController extends Controller
 
                 default:
 
-                    $query->orderBy('id', 'asc')->get();           //->paginate(10);
+                    $query->orderBy('id', 'asc')->get();
             }
 
-            $accessions = $query->orderBy('id')->get();          //->paginate(10);
+            $accessions = $query->orderBy('id')->get();
             return view('accessions.index', compact('accessions', 'categories'));
+        
+            
         }
+
+        //this is for search bar
 
         $search = $request->input('search'); //<-- we use global request to get the param of URI
         
@@ -123,9 +139,11 @@ class AccessionController extends Controller
         else{
 
            
-            $accessions = Accession::orderBy('id', 'asc')->paginate(10);
+            $accessions = Accession::orderBy('id', 'asc')->get();
             return view('accessions.index', compact('accessions', 'categories'));
         }
+
+        */
     }
     
     /**
@@ -279,10 +297,7 @@ class AccessionController extends Controller
         return view('accessions.index', compact('accessions', 'categories'));
     }
 
-
     
-    
-
 
 
 }

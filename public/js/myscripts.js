@@ -1,8 +1,21 @@
-    $(document).ready( function () {
-        $('#accession').DataTable();
-    } );
-    
-
+   /*
+   $(document).ready(function(){
+        $('#table-accession').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/accessions",
+            "columns":[
+                { data: 'accession_no'},
+                { data: 'title'},
+                { data: 'category_id'},
+                { data: 'groupcountry'},
+                { data: 'year'},
+                { data: 'description'}
+            ]
+                    
+        });
+    });
+    */
 
 
 
@@ -50,10 +63,3 @@
             }
         });
     });
-/*
-
-    $('#table1 tr').each(function() {
-        if ($(this).find('td:empty').length) $(this).remove();
-    });
-
-*/
