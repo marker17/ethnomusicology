@@ -17,7 +17,7 @@ use Yajra\Datatables\Facades\Datatables;
 |
 */
 
-
+URL::forceSchema("https");
 
 // Pages
 Route::get('/', 'PagesController@getIndex');

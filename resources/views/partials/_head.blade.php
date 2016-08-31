@@ -4,9 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>@yield('title')</title>
 
-{{ HTML::style('//url/css/normalize.css') }}
+{{ HTML::style('css/normalize.css') }}
 
-{{ HTML::style('//url/css/bootstrap.min.css') }}
+{{ HTML::style('css/bootstrap.min.css') }}
     
 {{ HTML::style('css/styles.css') }}
 
