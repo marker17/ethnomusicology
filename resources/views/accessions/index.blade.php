@@ -51,7 +51,7 @@
 							<th>Country</th>
 							<th>Year</th>
 							<th>Description</th>
-							<th></th>
+							<th id="action"></th>
 						</thead>
 
 			
