@@ -310,8 +310,12 @@ class AccessionController extends Controller
 
 
 
+                return '<a href="#edit-'.$accession->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
 
-                return "<a href='" . url('accessions/' . $accession->id . '/edit') . "class="btn btn-xs btn-primary"'>Edit</a> | <a href='" . url('accessions/' . $accession->id) . "'>View</a>";
+                /*
+                return "<a href='" . url('accessions/' . $accession->id . '/edit') . "'>Edit</a> | <a href='" . url('accessions/' . $accession->id) . "'>View</a>";
+
+                */
             })
             ->make(true);   
 

@@ -123,7 +123,7 @@
 						<div class="well" id="wellbutton">
 							<div class="row">
 								<div class="col-sm-4">
-									{!! HTML::linkRoute('accessions.edit', 'Edit', array($accession->id), array('class'=>'btn btn-primary btn-block')) !!}
+									{!! HTML::linkRoute('accessions.edit', 'Edit', array($accession->id), array('id' =>'edit-') array('class'=>'btn btn-primary btn-block')) !!}
 								</div>
 								<div class="col-sm-4">
 									
