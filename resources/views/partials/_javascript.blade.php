@@ -8,13 +8,13 @@
 <script src="//code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
 
 
-{{ HTML::script('//js/jquery.min.js') }}
+{{ HTML::script('js/jquery.min.js') }}
 
 
 
-{{ HTML::script('//js/bootstrap.min.js') }}
+{{ HTML::script('js/bootstrap.min.js') }}
 
-{{ HTML::script('//js/dist/sweetalert.min.js') }}
+{{ HTML::script('js/dist/sweetalert.min.js') }}
 
 
 
