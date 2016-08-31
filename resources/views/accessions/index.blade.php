@@ -72,28 +72,7 @@
 @section('scripts')
 <script>
 
-	/*
-	$(document).ready(function(){
-        $('#table-accession').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "ajax": "/api/accessions",
-            "columns": [
-                { data: 'accession_no'},
-                { data: 'category_name'},
-                { data: 'author'},
-                { data: 'groupcountry'},
-                { data: 'year'},
-                { data: 'description'},
-                { data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
-
-           
-                    
-        });
-    });
-
-    */
+	
    
   
    $(document).ready(function(){
