@@ -46,11 +46,12 @@
 						<thead>
 							
 							<th>Accession No.</th>
-							<th>title</th>
-							<th>category</th>
-							<th>country</th>
-							<th>year</th>
-							<th>description</th>
+							<th>Type</th>
+							<th>Researchers</th>
+							<th>Country</th>
+							<th>Year</th>
+							<th>Description</th>
+							<th></th>
 						</thead>
 
 			
@@ -70,6 +71,8 @@
 
 @section('scripts')
 <script>
+
+	/*
 	$(document).ready(function(){
         $('#table-accession').DataTable({
             "processing": true,
@@ -77,30 +80,49 @@
             "ajax": "/api/accessions",
             "columns": [
                 { data: 'accession_no'},
-                { data: 'title'},
-                { data: 'category_id'},
+                { data: 'category_name'},
+                { data: 'author'},
                 { data: 'groupcountry'},
                 { data: 'year'},
-                { data: 'description'}
+                { data: 'description'},
+                { data: 'action', name: 'action', orderable: false, searchable: false}
             ]
+
+           
                     
         });
     });
+
+    */
+   
+  
+   $(document).ready(function(){
+        $('#table-accession').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/api/accessions",
+            "columns": [
+                { data: 'accession_no'},
+                { data: 'category_name'},
+                { data: 'author'},
+                { data: 'groupcountry'},
+                { data: 'year'},
+                { data: 'description'},
+                { data: 'action', name: 'action', orderable: false, searchable: false}
+            ]
+            
+           
+                    
+        });
+    });
+   
+
+
+
+
 </script>
 	
 @endsection
 
-{{--
 
-@section('scripts')
-<script>		
-$(document).ready( function () {
-    $('#accession').DataTable();
-} );
-
-</script>	
-@endsection
-
---}}
-
-
+ 

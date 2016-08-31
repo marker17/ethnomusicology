@@ -32,7 +32,8 @@ class AccessionController extends Controller
             [
                 'index',
                 'show',
-                'search'
+                'search',
+                'api'
             ]
         ]);
 
@@ -62,7 +63,7 @@ class AccessionController extends Controller
         //category type
 
 
-        /*
+        
         if ($request->input('type')){
 
             switch ($request->input('type')){
@@ -143,7 +144,7 @@ class AccessionController extends Controller
             return view('accessions.index', compact('accessions', 'categories'));
         }
 
-        */
+        
     }
     
     /**
@@ -296,6 +297,37 @@ class AccessionController extends Controller
 
         return view('accessions.index', compact('accessions', 'categories'));
     }
+
+    public function api(){
+
+        $accessions = Accession::select('*')
+                    ->leftJoin('categories', 'categories.id', '=', 'accessions.category_id')
+                    ->select(['accessions.id', 'accession_no', 'category_name', 'author', 'groupcountry', 'year', 'description']);
+
+
+        return Datatables::of($accessions)
+            ->addColumn('action', function ($accession) {
+
+
+
+
+                return "<a href='" . url('accessions/' . $accession->id . '/edit') . "'>Edit</a> | <a href='" . url('accessions/' . $accession->id) . "'>View</a>";
+            })
+            ->make(true);   
+
+
+         
+            
+
+
+
+
+
+        //return Datatables::eloquent(Accession::query())->make(true);   
+    }
+
+
+
 
     
 

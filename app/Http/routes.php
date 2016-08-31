@@ -46,8 +46,11 @@ Route::get('register', 'Auth\AuthController@showRegistrationForm');
 
 
 
-Route::get('api/accessions', function(){
 
-	return Datatables::eloquent(App\Accession::query())->make(true);
 
-});
+Route::get('api/accessions', 'AccessionController@api');
+
+
+
+	
+
