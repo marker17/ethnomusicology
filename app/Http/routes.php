@@ -44,10 +44,7 @@ Route::post('register', ['as' => 'register', 'uses' =>'Auth\AuthController@regis
 Route::get('register', 'Auth\AuthController@showRegistrationForm');
 
 
-
-
-
-
+//Datatables
 Route::get('api/accessions', 'AccessionController@api');
 
 

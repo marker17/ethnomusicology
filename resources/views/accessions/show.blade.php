@@ -277,7 +277,7 @@
 
 @section('scripts')
 	
-		{!! HTML::script('js/myscripts.js') !!} 
+	{!! HTML::script('js/myscripts.js') !!} 
 		
 	
 @endsection
