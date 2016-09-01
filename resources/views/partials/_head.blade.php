@@ -14,7 +14,9 @@
 
 
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+{{ HTML::style('css/font-awesome.min.css') }}
 
+{{ HTML::style('css/bootstrap-social.css') }}
 
 
 

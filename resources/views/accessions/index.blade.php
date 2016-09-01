@@ -8,8 +8,8 @@
 		@if (Auth::check())
 		<div class="form-group">
 			<div style="text-align:right;">
-				<a href="{{ route('accessions.create') }}" class="btn btn-primary btn-sm">Create New Post</a> 
-				<a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">Create New Category</a>
+				<a href="{{ route('accessions.create') }}" class="btn btn-primary btn-sm btncreate">Create New Post</a> 
+				<a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm btncreate">Create New Category</a>
 			</div>
 			
 		</div>
@@ -22,7 +22,9 @@
 					<th>Categories</th>
 				</thead>
 				<tbody>
-
+					<td>
+						<a href="">All</a> 
+					</td>
 					@foreach ($categories as $category)
 						<tr>
 							<td>
@@ -56,7 +58,7 @@
 							<th>Country</th>
 							<th>Year</th>
 							<th>Description</th>
-							<th id="action">Edit | View</th>
+							<th id="action">Actions</th>
 						</thead>
 
 			
@@ -85,6 +87,9 @@
             "processing": true,
             "serverSide": true,
             "ajax": "/api/accessions",
+            "columnDefs": [
+    			{ "width": "15%", "targets": 6 }
+  			],
             "columns": [
                 { data: 'accession_no'},
                 { data: 'category_name'},

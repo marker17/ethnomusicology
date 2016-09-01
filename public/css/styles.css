@@ -266,6 +266,7 @@ nav-list {
 .btncreate{
 
     margin-bottom: 5px;
+    width:150px;
 }
 
 
@@ -274,3 +275,8 @@ nav-list {
     text-align: center;
 }
 
+
+.fa-plus{
+
+    color: yellow;
+}

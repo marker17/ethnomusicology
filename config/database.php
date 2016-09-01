@@ -1,10 +1,10 @@
 <?php
 
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));   
-$host = $url["host"];   
-$username = $url["user"];   
-$password = $url["pass"];   
-$database = substr($url["path"], 1);    
+//$url = parse_url(getenv("CLEARDB_DATABASE_URL"));   
+//$host = $url["host"];   
+//$username = $url["user"];   
+//$password = $url["pass"];   
+//$database = substr($url["path"], 1);    
 
 
 return [
@@ -60,16 +60,16 @@ return [
         ],
 
         'mysql' => [
-            'host' => $host,
-            'username' => $username,
-            'database' => $database,
-            'password' => $password,
+            //'host' => $host,
+            //'username' => $username,
+            //'database' => $database,
+            //'password' => $password,
             'driver' => 'mysql',
-            //'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            //'database' => env('DB_DATABASE', 'etno'),
-            //'username' => env('DB_USERNAME', 'root'),
-            //'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'etno'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

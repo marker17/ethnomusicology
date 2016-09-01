@@ -175,6 +175,7 @@ class AccessionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
+            'accession_no'=> 'required|alpha_dash|min:5|max:255',
             'category_id'   => 'required|integer',
             'length'        => 'numeric',
             'width'         => 'numeric',
@@ -242,6 +243,7 @@ class AccessionController extends Controller
         $accession = Accession::find($id);
 
         $this->validate($request, array(
+            'accession_no'=> 'required|alpha_dash|min:5|max:255',
             'category_id' =>'required|integer',
             'length' => 'numeric', 
             'width' => 'numeric',
