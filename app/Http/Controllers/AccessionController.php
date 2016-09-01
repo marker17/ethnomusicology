@@ -310,7 +310,7 @@ class AccessionController extends Controller
 
 
 
-                return '<a href="accessions/'.$accession->id.'/edit" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a> <a href="accessions/'.$accession->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-expand"></i> View</a>';
+                return '<center><a href="accessions/'.$accession->id.'/edit" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a> <a href="accessions/'.$accession->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-expand"></i> View</a></center>';
 
                 /*
                 return "<a href='" . url('accessions/' . $accession->id . '/edit') . "'>Edit</a> | <a href='" . url('accessions/' . $accession->id) . "'>View</a>";

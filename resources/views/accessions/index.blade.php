@@ -6,9 +6,13 @@
 
 	<div class="row">
 		@if (Auth::check())
+		<div class="form-group">
 			<div style="text-align:right;">
-				<a href="{{ route('accessions.create') }}" class="btn btn-primary btncreate">Create New Post</a>
+				<a href="{{ route('accessions.create') }}" class="btn btn-primary btn-sm">Create New Post</a> 
+				<a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">Create New Category</a>
 			</div>
+			
+		</div>
 		@endif
 
 		<div class="col-md-2">
@@ -22,19 +26,20 @@
 					@foreach ($categories as $category)
 						<tr>
 							<td>
-								<a href="{{url('accessions?type='.$category->category_name) }}">{{$category->category_name}}</a>
+								<a href="{{url('accessions?type='.$category->category_name) }}">{{$category->category_name}}</a> 
 							</td>
 						</tr>
 					@endforeach
 				</tbody>
 			</table>
-
+			{{--
 			@if (Auth::check())
 			<div style="text-align:left;">
-				<a href="{{ route('categories.index') }}" class="btn btn-success btn-block">Create New Category</a>
+				<a href="{{ route('categories.index') }}" class="btn btn-primary btn-sm">Create New Category</a>
 			</div>
-		@endif
-		
+
+			@endif
+			--}}
 		</div>
 		<div class="col-md-10">
 			
@@ -51,7 +56,7 @@
 							<th>Country</th>
 							<th>Year</th>
 							<th>Description</th>
-							<th id="action"></th>
+							<th id="action">Edit | View</th>
 						</thead>
 
 			

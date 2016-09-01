@@ -23,15 +23,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Accession::class, function (Faker\Generator $faker) {
     return [
-        'accession_no'=>$faker->name,
-		'title'=>$faker->name,
-		'category_id'=>'1',
+        'accession_no'=>$faker->numerify('UPCE-P- ###'),
+		'title'=>$faker->title,
+		'category_id'=>'Photo',
 		'author'=>$faker->name,
-		'groupcountry'=>$faker->name,
-		'year'=>$faker->name,
-		'description'=>str_random(10),
-		'notes'=>str_random(10),
-		'picture'=>str_random(10),
+		'groupcountry'=>$faker->country,
+		'year'=>$faker->year,
+		'description'=>$faker->paragraph,
+		'notes'=>$faker->word,
+		'picture'=>$faker->imageUrl($width = 640, $height = 480),
 		'photodate'=>str_random(10),
 		'photographer'=>str_random(10),
 		'relatedimages'=>str_random(10),
