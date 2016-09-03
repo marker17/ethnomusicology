@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title>404 error page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <link href="css/errstyle.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
@@ -33,7 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
           
         </div>
        
-    <p hidden>&#169; 2014 Template by<a href="http://w3layouts.com" target="_blank">&nbsp;w3layouts</a> </p>
+    <p hidden>&#169; 2014 Template by<a href="https://w3layouts.com" target="_blank">&nbsp;w3layouts</a> </p>
     </div>
     
    

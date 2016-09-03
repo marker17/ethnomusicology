@@ -1,6 +1,9 @@
 /vendor
 /node_modules
-/public/storage
-Homestead.yaml
-Homestead.json
-.DS_Store
+
+
+# Laravel 5 & Lumen specific
+bootstrap/cache/
+.env.*.php
+.env.php
+.env
