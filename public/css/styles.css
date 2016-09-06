@@ -3,7 +3,7 @@ body{
 	align:center;
 	padding:70px 0px 0px 0px;
 	z-index:0;
-	background: #650000;
+	background-color: #650000;
     border-color: #6b1b6b !important;
     font-family: Helvetica !important;  
 
@@ -103,6 +103,17 @@ body{
 
 }
 
+body{
+
+    align:center;
+    padding:70px 0px 0px 0px;
+    z-index:0;
+    background-color: #650000;
+    border-color: #6b1b6b !important;
+    font-family: Helvetica !important;  
+
+}
+
 
 #tdview{
     padding-right:1px;
@@ -125,11 +136,17 @@ input.search-query {
 /*
     this sets the general green color of the navbar
  */
+
 .navbar-default{
 
     background-color:#096804;
     border-color:#096804;
     color:#ffffff;
+}
+
+.navbar{
+
+    background-color:#096804;
 }
 
 
